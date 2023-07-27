@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { NewBookingComponent } from '../new-booking/new-booking.component';
 
 export interface PeriodicElement {
@@ -8,7 +8,7 @@ export interface PeriodicElement {
   floor: number;
   seat_number: string;
   status: string
-};
+}
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {date : '28/07/2023', building_name: 'cnc', floor: 3, seat_number: 'C121', status: 'Active'},
@@ -31,12 +31,12 @@ export class BookingComponent {
 
 
   addNew() {
-    let dialogRef = this.dialog.open(NewBookingComponent, {
+    const dialogRef = this.dialog.open(NewBookingComponent, {
       height: '400px',
       width: '600px',
     });
     dialogRef.afterClosed().subscribe((result:any) => {
-      console.log(`Dialog result: ${result}`); // Pizza!
+      console.log(`Dialog result: ${result}`); 
     });
   }
 }
