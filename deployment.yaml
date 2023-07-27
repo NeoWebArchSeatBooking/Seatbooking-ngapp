@@ -12,7 +12,7 @@ spec:
   type: NodePort
   ports:
     - protocol: TCP
-      port: 4000
+      port: 80
       targetPort: 80
       nodePort: 30001
 ---
@@ -43,9 +43,9 @@ spec:
     spec:
       containers:
         - name: seatbooking-web-container
-          image: dhamodaran/seatbooking_api:latest
+          image: dhamodaran/seatbooking_app:latest
           resources:
             requests:
               cpu: 500m
           ports:
-            - containerPort: 4000
+            - containerPort: 80
