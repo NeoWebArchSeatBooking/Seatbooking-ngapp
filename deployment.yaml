@@ -45,7 +45,11 @@ spec:
         - name: seatbooking-web-container
           image: dhamodaran/seatbooking_app:latest
           resources:
+            limits:
+              cpu: 200m
+              memory: 500Mi
             requests:
-              cpu: 500m
+              cpu: 100m
+              memory: 200Mi
           ports:
             - containerPort: 80
