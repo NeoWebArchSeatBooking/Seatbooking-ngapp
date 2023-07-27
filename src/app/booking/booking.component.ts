@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { NewBookingComponent } from '../new-booking/new-booking.component';
 
 export interface PeriodicElement {
