@@ -6,7 +6,7 @@ on:
   push:
     branches: ["feature*"]
   pull_request:
-    branches: ["development"]
+    branches: ["main"]
     types: ["opened", "edited", "reopened"]
 jobs:
   build:
