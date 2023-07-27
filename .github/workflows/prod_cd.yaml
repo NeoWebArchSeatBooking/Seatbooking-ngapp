@@ -1,0 +1,32 @@
+name: Publish to Production
+on:
+  push:
+    branches: ["sgddara*"]
+  pull_request:
+    branches: ["production"]
+    types: ["closed"]
+env:
+  IMG_NAME: seatbooking_app
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set the Kubernetes context
+        uses: azure/k8s-set-context@v2
+        with:
+          method: service-account
+          k8s-url: http://172.23.112.1:8081
+          k8s-secret: ${{ secrets.KUBE_TOKEN }}
+
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Deploy to the Kubernetes cluster
+        uses: azure/k8s-deploy@v1
+        with:
+          namespace: default
+          manifests: |
+            deployment.yaml
+          images: |
+            dhamodaran/seatbooking_app:latest
