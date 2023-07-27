@@ -1,7 +1,6 @@
 FROM node:18.10.0-alpine3.16 as node
 WORKDIR /app
 
-COPY .angular .
 COPY *.json .
 COPY src src/
 
