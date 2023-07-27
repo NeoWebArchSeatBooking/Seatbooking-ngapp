@@ -6,8 +6,8 @@ pipeline {
       steps {
         withKubeConfig([credentialsId: 'kube-config']) {
           bat 'kubectl get deployment'
-          bat 'kubectl delete deployment/seatbooking-web-deployment'
-          bat 'kubectl delete service/seatbooking-web'
+          bat 'kubectl delete deployment/seatbooking-web-deployment  --ignore-not-found=true'
+          bat 'kubectl delete service/seatbooking-web  --ignore-not-found=true'
           bat 'kubectl create -f ./deployment.yaml'
         }
       } 
