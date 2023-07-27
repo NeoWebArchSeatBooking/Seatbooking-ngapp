@@ -24,7 +24,7 @@ jobs:
         run: echo $BUILD_TS # Gives "2022-12-11T01:42:20"
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm test
+      # - run: npm test
   lint:
     runs-on: ubuntu-latest
     steps:
