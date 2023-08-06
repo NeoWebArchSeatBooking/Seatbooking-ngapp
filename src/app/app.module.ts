@@ -15,6 +15,9 @@ import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { LoginComponent } from './login/login.component';
 import { NewBookingComponent } from './new-booking/new-booking.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { NewBookingComponent } from './new-booking/new-booking.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatToolbarModule,
@@ -35,6 +39,10 @@ import { NewBookingComponent } from './new-booking/new-booking.component';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    MatSelectModule,
+    MatInputModule
+
+ 
   ],
   providers: [],
   bootstrap: [AppComponent],
