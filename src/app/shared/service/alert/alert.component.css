@@ -1,0 +1,12 @@
+.alerts {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+}
+.close {
+    cursor: pointer;
+}
+
+.alert {
+    z-index: 2;
+}
