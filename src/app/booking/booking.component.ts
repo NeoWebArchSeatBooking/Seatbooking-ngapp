@@ -35,7 +35,7 @@ export class BookingComponent implements OnInit {
       this.companyInfoService.fetchSeatingInformation()
     ]).subscribe((res:any)=> {
       console.log(res);
-      this.bookingList = this.processBookingData(res[0].items, res[1].items);
+      this.bookingList = this.processBookingData(res[0].items, res[1].infras);
       this.displayedColumns = this.columnInfo.map((obj:any) => obj.key);
       console.log(this.bookingList);
     });
@@ -49,22 +49,28 @@ export class BookingComponent implements OnInit {
     return bookingData.map((bData:any) => {
 
       let output:any = {
-        id : bData.id,
-        eId: bData.eId,
-        date: bData.date,
+        id : bData.bookingId,
+        eId: bData.userId,
+        date: bData.bookingDate,
         status: bData.status,
-        seatingInfo: {}
+        seatingInfo: {
+          seat: {
+            seatId : bData.seatInformation.seatId
+          } 
+        }
       };
-      const building = seatingInfo.find((res: any) => res.id === bData.seatInformation.buildingId);
-      if(building) {
-        output.seatingInfo.building = building;
-        const floor = building.floors.find((res:any) => res.id === bData.seatInformation.floorId);
-        if(floor) {
-          output.seatingInfo.floor = floor;
-          const seat = floor.seats.find((res:any) => res.id === bData.seatInformation.seatId);
-          if(seat) {
-            output.seatingInfo.seat =seat;
+
+      const location = seatingInfo.find((res: any) => res.locationId === bData.seatInformation.locationId);
+      if(location) {
+        output.seatingInfo.location = location;
+        const block = location.blocks.find((res:any) => res.blockId === bData.seatInformation.blockId);
+        if(block) {
+          output.seatingInfo.block = block;
+          const floor = block.floors.find((res:any) => res.floorId === bData.seatInformation.floorId);
+          if(floor) {
+            output.seatingInfo.floor = floor;
           }
+
         }
       }
       return output;
@@ -83,16 +89,16 @@ export class BookingComponent implements OnInit {
         header: 'Date'
       },
       {
-        key: 'seatingInfo.building.name',
-        header: 'Building'
+        key: 'seatingInfo.location.locationName',
+        header: 'Location'
       },
       {
-        key: 'seatingInfo.floor.name',
+        key: 'seatingInfo.block.blockName',
+        header: 'Block'
+      },
+      {
+        key: 'seatingInfo.floor.floorId',
         header: 'Floor'
-      },
-      {
-        key: 'seatingInfo.seat.id',
-        header: 'Seat Id'
       },
       {
         key: 'status',
