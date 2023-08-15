@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 import { NewBookingComponent } from '../new-booking/new-booking.component';
 import { BookingService } from '../services/booking.service';
 import { CompanyInfoService } from '../services/company-info.service';
-import * as _ from 'lodash';
 import { TableViewComponent } from '../shared/components/table-view/table-view.component';
 import { UtilityService } from '../shared/service/utility/utility.service';
-import * as schema from './schema/booking.schema.json';
 
 @Component({
   selector: 'app-booking',
