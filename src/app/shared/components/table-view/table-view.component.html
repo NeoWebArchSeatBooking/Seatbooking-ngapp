@@ -1,7 +1,7 @@
 <div class="table-view">
     <div style="float: right;">
         <mat-form-field *ngIf="!(configuration && (configuration.disableFullTextSearch))"
-        appearance="standard">
+        >
         <mat-label>Search User</mat-label>
         <input matInput
             (keyup)="applyFilter($event)"
@@ -14,7 +14,7 @@
         mat-dialog-close
         *ngIf="(configuration && (configuration.add))"
         (click)="add()"
-        cdkFocusInitial>Add New User</button>
+        cdkFocusInitial>{{configuration.addConfig?.label? configuration.addConfig.label : 'Add'}}</button>
     </div>
     <table mat-table
         matSort

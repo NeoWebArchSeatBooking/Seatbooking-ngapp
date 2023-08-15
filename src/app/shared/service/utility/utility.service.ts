@@ -41,7 +41,7 @@ export class UtilityService {
     }
     if(!options.data) {
       options.data = {
-        title: 'Are you sure you want to delete user',
+        title: 'Are you sure you want to delete',
         content: ''
       };
     }

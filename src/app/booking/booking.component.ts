@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 import { NewBookingComponent } from '../new-booking/new-booking.component';
 import { BookingService } from '../services/booking.service';
 import { CompanyInfoService } from '../services/company-info.service';
 import * as _ from 'lodash';
+import { TableViewComponent } from '../shared/components/table-view/table-view.component';
+import { UtilityService } from '../shared/service/utility/utility.service';
+import * as schema from './schema/booking.schema.json';
 
 @Component({
   selector: 'app-booking',
@@ -18,15 +21,64 @@ export class BookingComponent implements OnInit {
   columnInfo:any = [];
   displayedColumns:any = [];
 
+  @ViewChild('tableView') tableView!: TableViewComponent;
+  columnDefinition: any;
+  configuration: any;
+
   constructor(
     private bookingService: BookingService,
     private companyInfoService: CompanyInfoService,
+    private utilityService: UtilityService,
     public dialog: MatDialog) {
   }
   ngOnInit(): void {
-    this.getData();
-    this.columnInfo = this.getColumnInfo();
+    this.setColumnDefinitions();    
+    this.configuration = this.getConfiguration();
+    setTimeout(() => {
+      //this.fetchData(0, this.tableView.getPaginationPageSize());
+      this.getData();
+    }, 0);
     
+  }
+
+  setColumnDefinitions() {
+    let definitions = require('./schema/booking.schema.json');
+    const cols = [...definitions.tableSchema];
+    this.columnDefinition = cols;
+  }
+
+  getSchema() {
+    return ;
+  }
+
+  getConfiguration() {
+    return {
+      add: true,
+      addConfig: {
+        label : 'Add new Booking'
+      },
+      serverRender: false,
+      disableFullTextSearch: false,
+      actionConfig: [
+        {
+          id: 'cancel',
+          iconName: 'cancel',
+          tooltip: 'Cancel Booking',
+          action: (item:any) => {
+            this.utilityService.showConfirmation({
+              data: {
+                title : 'Do you want to cancel Booking?'
+              }
+            }).subscribe((res:any) => {
+              console.log(res);
+              if(res) {
+               
+              }
+            });
+          }
+        }
+      ]
+    };
   }
 
   getData() {
@@ -34,16 +86,12 @@ export class BookingComponent implements OnInit {
       this.bookingService.getBooking(),
       this.companyInfoService.fetchSeatingInformation()
     ]).subscribe((res:any)=> {
-      console.log(res);
-      this.bookingList = this.processBookingData(res[0].items, res[1].infras);
-      this.displayedColumns = this.columnInfo.map((obj:any) => obj.key);
-      console.log(this.bookingList);
+      const data = this.processBookingData(res[0].items, res[1].infras);
+      this.tableView?.setData(data);
+      this.tableView?.setTotalSize(data.length);
     });
   }
 
-  getValue(obj:any, key:any) {
-    return _.get(obj, key);
-  }
 
   processBookingData(bookingData:any, seatingInfo:any) {
     return bookingData.map((bData:any) => {
@@ -77,35 +125,6 @@ export class BookingComponent implements OnInit {
     });
   }
 
-  getColumnInfo() {
-    return [
-      {
-        key: 'id',
-        header: 'Booking Id'
-      },
-     
-      {
-        key: 'date',
-        header: 'Date'
-      },
-      {
-        key: 'seatingInfo.location.locationName',
-        header: 'Location'
-      },
-      {
-        key: 'seatingInfo.block.blockName',
-        header: 'Block'
-      },
-      {
-        key: 'seatingInfo.floor.floorId',
-        header: 'Floor'
-      },
-      {
-        key: 'status',
-        header: 'Status'
-      }
-    ]
-  }
 
   addNew() {
     const dialogRef = this.dialog.open(NewBookingComponent, {

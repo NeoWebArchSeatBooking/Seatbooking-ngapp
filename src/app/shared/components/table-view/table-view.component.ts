@@ -68,7 +68,7 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
    * @param changes 
    */
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.columnDefinition.currentValue !== undefined) {
+    if (changes['columnDefinition'].currentValue !== undefined) {
       if(this.columnDefinition) {
         this.displayedColumns = this.columnDefinition.map((columnDefinition: ColumnDefintionModel| any) => {
           if(columnDefinition) {
