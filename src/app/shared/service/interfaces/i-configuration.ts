@@ -3,4 +3,6 @@ export interface IAPIConfiguration {
     group?: string;
     isMock?: boolean;
     muteNotifyError?: boolean;
+    overrideBaseURL?:string;
+    overrideResourcePath?: string;
 }

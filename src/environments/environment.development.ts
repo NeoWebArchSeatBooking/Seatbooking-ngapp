@@ -1,4 +1,5 @@
 export const environment = {
-    baseURL: 'https://jsonblob.com/api/jsonBlob',
+    baseURL: 'https://jsonblob.com',
+    resourcePath: 'api/jsonBlob',
     isMock: false
 };

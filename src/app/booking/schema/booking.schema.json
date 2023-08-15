@@ -16,6 +16,11 @@
             "type": "label"
         },
         {
+            "field": "seatingInfo.seat.seatId",
+            "label": "Seat Id",
+            "type": "label"
+        },
+        {
             "field": "seatingInfo.location.locationName",
             "label": "Location Name",
             "type": "label"
@@ -28,11 +33,6 @@
         {
             "field": "seatingInfo.floor.floorId",
             "label": "Floor",
-            "type": "label"
-        },
-        {
-            "field": "seatingInfo.seat.seatId",
-            "label": "Seat Id",
             "type": "label"
         },
         {
