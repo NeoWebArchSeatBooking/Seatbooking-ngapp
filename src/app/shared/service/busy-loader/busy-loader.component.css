@@ -13,6 +13,5 @@
     margin: 0 auto;
     background-size: 100px;
     clip-path: circle(45% at 50% 49%);
-    background-image: url('../../../../assets/200w.gif');
-
+    /* background-image: url('../../../../assets/200w.gif'); */
   }

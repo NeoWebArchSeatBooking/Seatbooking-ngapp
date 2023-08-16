@@ -1,4 +1,4 @@
-{
+export const schema = {
     "tableSchema": [
         {
             "field": "action",
@@ -41,4 +41,4 @@
             "type": "label"
         }
     ]
-}
+};
