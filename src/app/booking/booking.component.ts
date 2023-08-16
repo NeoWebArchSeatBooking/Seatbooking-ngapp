@@ -40,7 +40,7 @@ export class BookingComponent implements OnInit {
   }
 
   setColumnDefinitions() {
-    let definitions = require('./schema/booking.schema.json');
+    const definitions = require('./schema/booking.schema.json');
     const cols = [...definitions.tableSchema];
     this.columnDefinition = cols;
   }
@@ -69,9 +69,7 @@ export class BookingComponent implements OnInit {
               }
             }).subscribe((res:any) => {
               console.log(res);
-              if(res) {
-               
-              }
+              console.log(item);
             });
           }
         }
@@ -94,7 +92,7 @@ export class BookingComponent implements OnInit {
   processBookingData(bookingData:any, seatingInfo:any) {
     return bookingData.map((bData:any) => {
 
-      let output:any = {
+      const output:any = {
         id : bData.bookingId,
         eId: bData.userId,
         date: bData.bookingDate,
