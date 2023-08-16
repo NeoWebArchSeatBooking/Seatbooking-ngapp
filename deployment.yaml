@@ -9,12 +9,11 @@ spec:
   selector:
     app: seatbooking-app
     name: seatbooking-web-pod
-  type: NodePort
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30001
 ---
 apiVersion: apps/v1
 kind: Deployment
