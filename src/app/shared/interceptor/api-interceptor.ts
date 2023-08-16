@@ -12,13 +12,15 @@ export class ApiInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.utilityService.showLoader(true);
-        return next.handle(req).pipe(catchError(err => {
+        const authReq = req.clone({
+            headers: req.headers.set('test', 'true')
+        })
+        return next.handle(authReq).pipe(catchError(err => {
             //this.utilityService.showErrorAlert(err);
             return throwError(err);
         })).pipe(finalize(() => {
             this.utilityService.showLoader(false);
         }));
-
         throw new Error("Method not implemented.");
     }
 }

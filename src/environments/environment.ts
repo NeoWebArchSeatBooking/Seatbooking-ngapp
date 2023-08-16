@@ -1,5 +1,5 @@
 export const environment = {
-    baseURL: 'https://jsonblob.com',
-    resourcePath: 'api/jsonBlob',
+    baseURL: 'http://seat-management-service',
+    resourcePath: 'v1/seat-management',
     isMock: false
 };

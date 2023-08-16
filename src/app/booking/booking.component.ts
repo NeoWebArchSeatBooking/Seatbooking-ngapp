@@ -69,7 +69,6 @@ export class BookingComponent implements OnInit {
               }
             }).subscribe((res: any) => {
               console.log(res);
-              if (res) { /* TODO */ }
             });
           }
         }
@@ -91,9 +90,8 @@ export class BookingComponent implements OnInit {
 
   processBookingData(bookingData: any, seatingInfo: any) {
     return bookingData.map((bData: any) => {
-
-      const output: any = {
-        id: bData.bookingId,
+      const output:any = {
+        id : bData.bookingId,
         eId: bData.userId,
         date: bData.bookingDate,
         status: bData.status,
