@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableViewComponent } from './table-view.component';
+import { SharedModule } from '../../shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TableViewComponent', () => {
   let component: TableViewComponent;
@@ -8,9 +10,10 @@ describe('TableViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableViewComponent ]
+      declarations: [TableViewComponent],
+      imports: [SharedModule, BrowserAnimationsModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

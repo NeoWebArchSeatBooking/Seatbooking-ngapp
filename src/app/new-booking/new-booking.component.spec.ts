@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewBookingComponent } from './new-booking.component';
+import { SharedModule } from '../shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('NewBookingComponent', () => {
   let component: NewBookingComponent;
@@ -8,9 +10,10 @@ describe('NewBookingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewBookingComponent ]
+      declarations: [NewBookingComponent],
+      imports: [SharedModule, BrowserAnimationsModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(NewBookingComponent);
     component = fixture.componentInstance;

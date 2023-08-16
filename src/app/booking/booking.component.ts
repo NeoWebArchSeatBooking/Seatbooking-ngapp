@@ -6,6 +6,7 @@ import { BookingService } from '../services/booking.service';
 import { CompanyInfoService } from '../services/company-info.service';
 import { TableViewComponent } from '../shared/components/table-view/table-view.component';
 import { UtilityService } from '../shared/service/utility/utility.service';
+import { schema } from './schema/booking.schema';
 
 @Component({
   selector: 'app-booking',
@@ -14,10 +15,10 @@ import { UtilityService } from '../shared/service/utility/utility.service';
 })
 export class BookingComponent implements OnInit {
 
-  bookingList:any;
-  seatingInfo:any;
-  columnInfo:any = [];
-  displayedColumns:any = [];
+  bookingList: any;
+  seatingInfo: any;
+  columnInfo: any = [];
+  displayedColumns: any = [];
 
   @ViewChild('tableView') tableView!: TableViewComponent;
   columnDefinition: any;
@@ -30,30 +31,29 @@ export class BookingComponent implements OnInit {
     public dialog: MatDialog) {
   }
   ngOnInit(): void {
-    this.setColumnDefinitions();    
+    this.setColumnDefinitions();
     this.configuration = this.getConfiguration();
     setTimeout(() => {
       //this.fetchData(0, this.tableView.getPaginationPageSize());
       this.getData();
     }, 0);
-    
+
   }
 
   setColumnDefinitions() {
-    const definitions = require('./schema/booking.schema.json');
-    const cols = [...definitions.tableSchema];
+    const cols = [...schema.tableSchema];
     this.columnDefinition = cols;
   }
 
   getSchema() {
-    return ;
+    return;
   }
 
   getConfiguration() {
     return {
       add: true,
       addConfig: {
-        label : 'Add new Booking'
+        label: 'Add new Booking'
       },
       serverRender: false,
       disableFullTextSearch: false,
@@ -62,12 +62,12 @@ export class BookingComponent implements OnInit {
           id: 'cancel',
           iconName: 'cancel',
           tooltip: 'Cancel Booking',
-          action: (item:any) => {
+          action: () => {
             this.utilityService.showConfirmation({
               data: {
-                title : 'Do you want to cancel Booking?'
+                title: 'Do you want to cancel Booking?'
               }
-            }).subscribe((res:any) => {
+            }).subscribe((res: any) => {
               console.log(res);
               console.log(item);
             });
@@ -81,7 +81,7 @@ export class BookingComponent implements OnInit {
     forkJoin([
       this.bookingService.getBooking(),
       this.companyInfoService.fetchSeatingInformation()
-    ]).subscribe((res:any)=> {
+    ]).subscribe((res: any) => {
       const data = this.processBookingData(res[0].items, res[1].infras);
       this.tableView?.setData(data);
       this.tableView?.setTotalSize(data.length);
@@ -89,9 +89,8 @@ export class BookingComponent implements OnInit {
   }
 
 
-  processBookingData(bookingData:any, seatingInfo:any) {
-    return bookingData.map((bData:any) => {
-
+  processBookingData(bookingData: any, seatingInfo: any) {
+    return bookingData.map((bData: any) => {
       const output:any = {
         id : bData.bookingId,
         eId: bData.userId,
@@ -99,19 +98,19 @@ export class BookingComponent implements OnInit {
         status: bData.status,
         seatingInfo: {
           seat: {
-            seatId : bData.seatInformation.seatId
-          } 
+            seatId: bData.seatInformation.seatId
+          }
         }
       };
 
       const location = seatingInfo.find((res: any) => res.locationId === bData.seatInformation.locationId);
-      if(location) {
+      if (location) {
         output.seatingInfo.location = location;
-        const block = location.blocks.find((res:any) => res.blockId === bData.seatInformation.blockId);
-        if(block) {
+        const block = location.blocks.find((res: any) => res.blockId === bData.seatInformation.blockId);
+        if (block) {
           output.seatingInfo.block = block;
-          const floor = block.floors.find((res:any) => res.floorId === bData.seatInformation.floorId);
-          if(floor) {
+          const floor = block.floors.find((res: any) => res.floorId === bData.seatInformation.floorId);
+          if (floor) {
             output.seatingInfo.floor = floor;
           }
 
@@ -121,14 +120,13 @@ export class BookingComponent implements OnInit {
     });
   }
 
-
   addNew() {
     const dialogRef = this.dialog.open(NewBookingComponent, {
       height: '100%',
       width: '90%',
     });
-    dialogRef.afterClosed().subscribe((result:any) => {
-      console.log(`Dialog result: ${result}`); 
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }
