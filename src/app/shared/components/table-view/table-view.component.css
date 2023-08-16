@@ -1,0 +1,19 @@
+.table-view {
+    margin: 10px 15px;
+}
+.btn-action {
+    width: auto;
+}
+
+.top-items mat-icon {
+    font-weight: bold;
+    font-size: 3em;
+    margin-right: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.add-btn{
+    float: left;
+    border: groove;
+}
