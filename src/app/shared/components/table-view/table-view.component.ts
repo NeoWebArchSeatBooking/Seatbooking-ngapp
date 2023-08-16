@@ -121,7 +121,7 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
    * @returns sortFunction
    */
   private customSort() {
-    let sortFn = (item:any, property:any) => {
+    const sortFn = (item:any, property:any) => {
       return this.getValue(item, property);
     };
     return sortFn;
@@ -139,7 +139,7 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
         return currentTerm + this.getValue(data, key) + '◬';
       }, '').toLowerCase();
       const transformedFilter = filter.trim().toLowerCase();
-      return dataStr.indexOf(transformedFilter) != -1;
+      return dataStr.indexOf(transformedFilter) !== -1;
     }
     return false;
     
@@ -153,8 +153,8 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
    */
   private compareColumns(data:any, filterObj: IColumnFilter) {
     let isEqual = true;
-    let columnData = String(this.getValue(data, filterObj.key)).trim().toLowerCase();
-    let filterData = String(filterObj.value).trim().toLowerCase();
+    const columnData = String(this.getValue(data, filterObj.key)).trim().toLowerCase();
+    const filterData = String(filterObj.value).trim().toLowerCase();
     switch (filterObj.condition) {
       case columnFilterConditon.eq:
         if (columnData !== filterData) {
@@ -176,10 +176,10 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
    * @returns filterFunction
    */
   private createFilter() {
-    let filterFunction = (data:any, filter:any): any => {
+    const filterFunction = (data:any, filter:any): any => {
       let isEqual = true;
       if (this.customFilter) {
-        let filterObjects: IColumnFilter[] = JSON.parse(filter);
+        const filterObjects: IColumnFilter[] = JSON.parse(filter);
         filterObjects.forEach(filterObj => {
           if (!this.compareColumns(data, filterObj)) {
             isEqual = false;

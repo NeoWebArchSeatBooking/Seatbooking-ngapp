@@ -19,33 +19,33 @@ export class UtilityService {
     this.loaderService.showLoader(flag);
   }
 
-  showErrorAlert(message: string, options?: any) {
-    this._snackBar.open(message, 'close', {duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-danger']});
-  }
-  
-  showSuccessAlert(message: string, options?: any) {
-    this._snackBar.open(message, 'close', {duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-success']});
+  showErrorAlert(message: string) {
+    this._snackBar.open(message, 'close', { duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-danger'] });
   }
 
-  showInfoAlert(message: string, options?: any) {
-    this._snackBar.open(message, 'close', {duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-info']});
+  showSuccessAlert(message: string) {
+    this._snackBar.open(message, 'close', { duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-success'] });
   }
 
-  showWarnAlert(message: string, options?: any) {
-    this._snackBar.open(message, 'close', {duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-warning']});
+  showInfoAlert(message: string) {
+    this._snackBar.open(message, 'close', { duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-info'] });
   }
 
-  showConfirmation(options?:any) {
-    if(!options) {
+  showWarnAlert(message: string) {
+    this._snackBar.open(message, 'close', { duration: 5000, verticalPosition: 'top', panelClass: ['alert', 'alert-warning'] });
+  }
+
+  showConfirmation(options?: any) {
+    if (!options) {
       options = {};
     }
-    if(!options.data) {
+    if (!options.data) {
       options.data = {
         title: 'Are you sure you want to delete',
         content: ''
       };
     }
-    if(!options.width) {
+    if (!options.width) {
       options.width = '30%';
     }
     return this.dialog.open(ConfirmationComponent, options).afterClosed();
