@@ -69,7 +69,6 @@ export class BookingComponent implements OnInit {
               }
             }).subscribe((res: any) => {
               console.log(res);
-              console.log(item);
             });
           }
         }
