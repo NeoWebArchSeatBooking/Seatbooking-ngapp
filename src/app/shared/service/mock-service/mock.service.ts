@@ -15,7 +15,7 @@ export class MockService {
     private utilityService: UtilityService) { }
 
   fetchData(configuration:IAPIConfiguration) {
-    return this.httpClient.get(`assets/mock-data/${configuration.group}.json`).pipe(map((res:any) => {
+    return this.httpClient.get(`/assets/mock/${configuration.group}.json`).pipe(map((res:any) => {
       return res[configuration.key];
     })).pipe(catchError(err => {
       if(!(configuration && configuration.muteNotifyError)) {

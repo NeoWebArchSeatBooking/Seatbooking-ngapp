@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
+import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 // import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 
 @Injectable({
@@ -16,6 +17,11 @@ export class CompanyInfoService {
     };
     return this.apiService.httpGet('1140606227507437568', null, config);
     */
-    return this.apiService.httpGet('facilities');
+
+    const config:IAPIConfiguration = {
+      group: 'infra',
+      key: 'facilities'
+    };
+    return this.apiService.httpGet('facilities', null, config);
   }
 }
