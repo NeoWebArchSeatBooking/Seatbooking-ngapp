@@ -14,7 +14,7 @@ import { UtilityService } from './utility/utility.service';
 })
 export class ApiService {
 
-  private environmentConfig = environment;
+  public environmentConfig = environment;
 
   constructor(
     private httpClient: HttpClient,

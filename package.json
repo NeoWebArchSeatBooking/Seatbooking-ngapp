@@ -6,11 +6,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch=false",
+    "test": "ng test",
     "lint": "eslint . --ext .ts"
   },
   "private": true,
   "dependencies": {
+    "@abacritt/angularx-social-login": "^2.0.0",
     "@angular/animations": "^15.2.0",
     "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",

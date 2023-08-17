@@ -3,7 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./sb-app/spec",
-    "types": ["jasmine"]
+    "types": [
+      "jasmine",
+      "node"
+    ]
   },
-  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
 }
