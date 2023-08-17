@@ -19,7 +19,7 @@ export class LoginComponent  implements OnInit{
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
       this.user = user;
-      this.loggedIn = (user != null);
+      this.loggedIn = (user !== null);
       if(this.loggedIn){
         saveToSession("userName",user.name)
         saveToSession("userId",user.email)

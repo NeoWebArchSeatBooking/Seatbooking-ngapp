@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 export const authGuard = () => {
   const router = inject(Router);
   const userId = getFromSession("userId")
-  if (userId != null) {
+  if (userId !== null) {
     return true;
   }
   // Redirect to the login page
