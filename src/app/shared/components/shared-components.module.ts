@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -48,6 +49,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatTooltipModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatTableModule,
@@ -66,6 +68,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatTooltipModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
+
     ConfirmationComponent,
     NoPermissionComponent,
     TableViewComponent

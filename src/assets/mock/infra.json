@@ -1,0 +1,86 @@
+{
+    "facilities" : {
+        "infras": [
+          {
+            "locationId": "TCO",
+            "locationName": "ChennaiTCO",
+            "blocks": [
+              {
+                "blockId": "SDB1",
+                "blockName": "SDSDB1",
+                "floorCount": 6,
+                "floors": [
+                  {
+                    "floorId": "F1",
+                    "status": "active"
+                  },
+                  {
+                    "floorId": "F2",
+                    "status": "active"
+                  }
+                ]
+              },
+              {
+                "blockId": "SDB2",
+                "blockName": "SDSDB2",
+                "floorCount": 6,
+                "floors": [
+                  {
+                    "floorId": "F1",
+                    "status": "active"
+                  },
+                  {
+                    "floorId": "F2",
+                    "status": "active"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "locationId": "KOC",
+            "locationName": "Kochin",
+            "blocks": [
+              {
+                "blockId": "SDB1",
+                "blockName": "SDSDB1",
+                "floorCount": 6,
+                "floors": [
+                  {
+                    "floorId": "F1",
+                    "status": "active"
+                  },
+                  {
+                    "floorId": "F2",
+                    "status": "active"
+                  },
+                  {
+                    "floorId": "F3",
+                    "status": "disable"
+                  }
+                ]
+              },
+              {
+                "blockId": "SDB2",
+                "blockName": "SDSDB2",
+                "floorCount": 6,
+                "floors": [
+                  {
+                    "floorId": "F1",
+                    "status": "active"
+                  },
+                  {
+                    "floorId": "F2",
+                    "status": "active"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "_meta": {
+          "message": "Success",
+          "status": 200
+        }
+      }
+}
