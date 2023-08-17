@@ -1,0 +1,166 @@
+{
+    "seats" : {
+        "items": [
+          {
+            "bookingDate": "02-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 1,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "07-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 2,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "KOC",
+              "blockId": "SDB1",
+              "floorId": "F2",
+              "seatId": "M306"
+            }
+          },
+          {
+            "bookingDate": "07-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 2,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "KOC",
+              "blockId": "SDB1",
+              "floorId": "F2",
+              "seatId": "M306"
+            }
+          },
+          {
+            "bookingDate": "07-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 2,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "KOC",
+              "blockId": "SDB1",
+              "floorId": "F2",
+              "seatId": "M306"
+            }
+          },
+          {
+            "bookingDate": "07-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 2,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "KOC",
+              "blockId": "SDB1",
+              "floorId": "F2",
+              "seatId": "M306"
+            }
+          },
+          {
+            "bookingDate": "06-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 3,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A302"
+            }
+          },
+          {
+            "bookingDate": "06-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 3,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A302"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          },
+          {
+            "bookingDate": "14-08-2023",
+            "userId": "sgd.daran@gmail.com",
+            "bookingId": 6,
+            "status": "Active",
+            "seatInformation": {
+              "locationId": "TCO",
+              "blockId": "SDB2",
+              "floorId": "F1",
+              "seatId": "A102"
+            }
+          }
+        ],
+        "_meta": {
+          "message": "Success",
+          "status": 200
+        }
+      }
+}
