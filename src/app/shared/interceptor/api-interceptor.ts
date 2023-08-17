@@ -8,7 +8,7 @@ import { UtilityService } from "../service/utility/utility.service";
 export class ApiInterceptor implements HttpInterceptor {
     constructor(
         private utilityService: UtilityService
-    ) {}
+    ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.utilityService.showLoader(true);
@@ -21,6 +21,5 @@ export class ApiInterceptor implements HttpInterceptor {
         })).pipe(finalize(() => {
             this.utilityService.showLoader(false);
         }));
-        throw new Error("Method not implemented.");
     }
 }

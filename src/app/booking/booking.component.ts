@@ -45,10 +45,6 @@ export class BookingComponent implements OnInit {
     this.columnDefinition = cols;
   }
 
-  getSchema() {
-    return;
-  }
-
   getConfiguration() {
     return {
       add: true,
