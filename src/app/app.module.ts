@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
@@ -37,7 +38,7 @@ import { SharedModule } from './shared/shared.module';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj.apps.googleusercontent.com',
+            provider: new GoogleLoginProvider(`${environment.clientKey}.apps.googleusercontent.com`,
               {
                 oneTapEnabled: false, // <===== default is true
               }

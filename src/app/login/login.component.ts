@@ -25,7 +25,7 @@ export class LoginComponent  implements OnInit{
         saveToSession("userId",user.email)
         saveToSession("token",user.idToken)
         this.router.navigate([''])
-      }
+      }      
     });
   }
   

@@ -5,7 +5,6 @@ export const authGuard = () => {
   const router = inject(Router);
   const userId = getFromSession("userId")
   if (userId != null) {
-    console.log(userId)
     return true;
   }
   // Redirect to the login page
@@ -13,18 +12,16 @@ export const authGuard = () => {
   return false;
 };
 
-export const saveToSession = (key:string,value:string,ttl:number=2000)=>{
+export const saveToSession = (key:string,value:string,ttl:number=900000)=>{
     const item = {
 		"value": value,
 		"expiry": new Date().getTime() + ttl,
 	}
-    console.log(item)
-    sessionStorage.setItem(key,JSON.stringify(item))
+   sessionStorage.setItem(key,JSON.stringify(item))
 }
 
 export const getFromSession = (key:string)=>{
     const itemStr = sessionStorage.getItem(key)
-    console.log(itemStr)
     if (!itemStr) {
         return null
     }
