@@ -49,7 +49,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTooltipModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports: [
     MatTableModule,
@@ -69,6 +70,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSlideToggleModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
 
     ConfirmationComponent,
     NoPermissionComponent,
