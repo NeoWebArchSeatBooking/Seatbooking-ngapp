@@ -14,7 +14,7 @@ export class ApiInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.utilityService.showLoader(true);
         const authReq = req.clone({
-            headers: req.headers.set('authorization',getFromSession('token'))
+            //headers: req.headers.set('authorization',getFromSession('token'))
         })
         return next.handle(authReq).pipe(catchError(err => {
             //this.utilityService.showErrorAlert(err);
