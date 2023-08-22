@@ -2,18 +2,19 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/c
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, finalize } from "rxjs/operators";
+import { getFromSession } from "src/app/auth/auth.guard";
 import { UtilityService } from "../service/utility/utility.service";
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
     constructor(
         private utilityService: UtilityService
-    ) {}
+    ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.utilityService.showLoader(true);
         const authReq = req.clone({
-            headers: req.headers.set('test', 'true')
+            //headers: req.headers.set('authorization',getFromSession('token'))
         })
         return next.handle(authReq).pipe(catchError(err => {
             //this.utilityService.showErrorAlert(err);
@@ -21,6 +22,5 @@ export class ApiInterceptor implements HttpInterceptor {
         })).pipe(finalize(() => {
             this.utilityService.showLoader(false);
         }));
-        throw new Error("Method not implemented.");
     }
 }

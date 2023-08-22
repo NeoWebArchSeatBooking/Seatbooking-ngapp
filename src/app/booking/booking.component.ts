@@ -23,7 +23,6 @@ export class BookingComponent implements OnInit {
   @ViewChild('tableView') tableView!: TableViewComponent;
   columnDefinition: any;
   configuration: any;
-
   constructor(
     private bookingService: BookingService,
     private companyInfoService: CompanyInfoService,
@@ -31,6 +30,7 @@ export class BookingComponent implements OnInit {
     public dialog: MatDialog) {
   }
   ngOnInit(): void {
+    
     this.setColumnDefinitions();
     this.configuration = this.getConfiguration();
     setTimeout(() => {
@@ -43,10 +43,6 @@ export class BookingComponent implements OnInit {
   setColumnDefinitions() {
     const cols = [...schema.tableSchema];
     this.columnDefinition = cols;
-  }
-
-  getSchema() {
-    return;
   }
 
   getConfiguration() {
