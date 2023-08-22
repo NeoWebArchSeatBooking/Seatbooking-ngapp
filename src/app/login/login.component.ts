@@ -1,7 +1,7 @@
 // import { SocialAuthService, SocialUser } from "@abacritt/angularx-social-login";
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { saveToSession } from "../auth/auth.guard";
+//import { saveToSession } from "../auth/auth.guard";
 
 @Component({
   selector: 'app-login',

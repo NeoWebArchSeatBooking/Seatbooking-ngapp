@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/c
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, finalize } from "rxjs/operators";
-import { getFromSession } from "src/app/auth/auth.guard";
+//import { getFromSession } from "src/app/auth/auth.guard";
 import { UtilityService } from "../service/utility/utility.service";
 
 @Injectable()
