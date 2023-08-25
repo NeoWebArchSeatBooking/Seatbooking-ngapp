@@ -17,7 +17,7 @@ export class ApiInterceptor implements HttpInterceptor {
             //headers: req.headers.set('authorization',getFromSession('token'))
         })
         return next.handle(authReq).pipe(catchError(err => {
-            //this.utilityService.showErrorAlert(err);
+            this.utilityService.showErrorAlert(err);
             return throwError(err);
         })).pipe(finalize(() => {
             this.utilityService.showLoader(false);
