@@ -20,7 +20,7 @@ export class BookingService {
     };
 
     let qp:any = {};
-    if(params.filter) {
+    if(params?.filter) {
       if(params.filter.viewRole) {
         qp.viewRole = params.filter.viewRole;
       }
