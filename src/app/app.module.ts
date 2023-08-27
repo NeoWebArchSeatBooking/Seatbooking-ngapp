@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { NewBookingComponent } from './new-booking/new-booking.component';
 import { ApiInterceptor } from './shared/interceptor/api-interceptor';
 import { SharedModule } from './shared/shared.module';
+import { AllBookingComponent } from './booking/all-booking/all-booking.component';
+import { FormsModule } from '@angular/forms';
+import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
+import { PreferencesComponent } from './preferences/preferences.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +23,17 @@ import { SharedModule } from './shared/shared.module';
     BookingComponent,
     NewBookingComponent,
     LoginComponent,
+    AllBookingComponent,
+    SideMenuNavComponent,
+    PreferencesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     SharedModule,
     //SocialLoginModule,
     //MatCardModule,

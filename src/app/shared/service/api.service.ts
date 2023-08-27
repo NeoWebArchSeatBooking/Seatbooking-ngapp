@@ -24,11 +24,11 @@ export class ApiService {
 
   httpGet(url: string, params?: any, configuration?: IAPIConfiguration) {
     if (this.environmentConfig.isMock && configuration?.group && configuration.key) {
-      return this.mockService.fetchData(configuration);
+      return this.mockService.fetchData(configuration, params);
     }
-    return this.httpClient.get(this.getURL(url, configuration), params ? params : {}).pipe(catchError(err => {
+    return this.httpClient.get(this.getURL(url, configuration), {params : params ? params : {}}).pipe(catchError(err => {
       if (err.status === 401 || err.status === 0) {
-        this.router.navigate(['error']);
+        //this.router.navigate(['error']);
       } else {
         if (!(configuration && configuration.muteNotifyError)) {
           this.utilityService.showErrorAlert(err.message);

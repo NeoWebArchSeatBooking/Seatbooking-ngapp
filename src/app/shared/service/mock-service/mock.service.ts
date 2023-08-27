@@ -14,9 +14,18 @@ export class MockService {
     private httpClient: HttpClient, 
     private utilityService: UtilityService) { }
 
-  fetchData(configuration:IAPIConfiguration) {
+  fetchData(configuration:IAPIConfiguration, params?:any) {
     return this.httpClient.get(`/assets/mock/${configuration.group}.json`).pipe(map((res:any) => {
-      return res[configuration.key];
+      let data = res[configuration.key];
+      // let output = [];
+      // if(params && data?.items) {
+      //   for(let  i=params.offset; i<params.limit; i++) {
+      //     output.push(data.items[i]);
+      //   }
+      //   data.items = output;
+      //   return data;
+      // }
+      return data;
     })).pipe(catchError(err => {
       if(!(configuration && configuration.muteNotifyError)) {
         this.utilityService.showErrorAlert(err);

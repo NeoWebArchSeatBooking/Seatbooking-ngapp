@@ -1,0 +1,19 @@
+.img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.title {
+    font-weight: 700;
+    font-size: 3em;
+}
+
+.desc {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .btn-booking {
+        margin-top: 20px;
+    }
+}
