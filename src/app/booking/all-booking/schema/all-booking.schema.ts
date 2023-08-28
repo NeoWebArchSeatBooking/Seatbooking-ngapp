@@ -6,7 +6,7 @@ export const schema = {
             "type": "label"
         },
         {
-            "field": "user",
+            "field": "eId",
             "label": "User",
             "type": "label"
         },

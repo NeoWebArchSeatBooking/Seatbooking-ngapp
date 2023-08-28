@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
-import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +28,13 @@ export class BookingService {
         qp.user = params.filter.user;
       }
       if(params.filter.fromDate) {
-        qp.from = moment(params.filter.fromDate).format('D-M-yyyy');
+        qp.fromDate = moment(params.filter.fromDate).format('DD-MM-yyyy');
       }
       if(params.filter.toDate) {
-        qp.to = moment(params.filter.toDate).format('D-M-yyyy');
+        qp.toDate = moment(params.filter.toDate).format('DD-MM-yyyy');
       }
     }
-    return this.apiService.httpGet('seats', qp, config);
+    return this.apiService.httpGet('booking/seats', qp, config);
   }
 
  
