@@ -21,12 +21,17 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+<<<<<<< Updated upstream
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 
+=======
+import { MatCardModule } from '@angular/material/card';
+ 
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -54,10 +59,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSlideToggleModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+<<<<<<< Updated upstream
     MatExpansionModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule
+=======
+    MatDialogModule,
+    MatCardModule
+>>>>>>> Stashed changes
   ],
   exports: [
     MatTableModule,
@@ -78,10 +88,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+<<<<<<< Updated upstream
     MatExpansionModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
+=======
+    MatCardModule,
+>>>>>>> Stashed changes
 
     ConfirmationComponent,
     NoPermissionComponent,

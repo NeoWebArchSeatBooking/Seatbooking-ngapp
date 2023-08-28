@@ -1,26 +1,66 @@
 .login {
-    position: absolute; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
+    position: absolute;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
 }
 
-.login-cntr{
+.login-cntr {
     position: absolute;
     top: 50%;
     left: 50%;
     font-size: 50px;
     color: rgb(12, 11, 11);
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-  }
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-  .login-card{
-    max-width: 400px;
-  }
+.login-card {
+    width: 30rem;
+    height: 20rem;
+}
+
+
+/* Style 7
+   ----------------------------- */
+
+.seven h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    color: #222;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.seven h1:after,
+.seven h1:before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #c50000;
+    border-top: 1px solid #c50000;
+    height: 5px;
+    background-color: #f8f8f8;
+}
+
+.middle {
+    align-self: center;
+}
