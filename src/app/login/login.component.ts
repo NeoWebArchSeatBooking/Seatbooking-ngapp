@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 //import { saveToSession } from "../auth/auth.guard";
-import {
-  SocialAuthService,
-  GoogleLoginProvider,
-  SocialUser,
-} from '@abacritt/angularx-social-login';
+import { EventService } from './../event.service';
 import { saveToSession } from '../auth/auth.guard';
+import {JwtService} from './../jwt.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,10 +12,11 @@ import { saveToSession } from '../auth/auth.guard';
 export class LoginComponent {
   
   loggedIn: boolean
-  user: SocialUser;
 
   constructor(
-   private authService: SocialAuthService, 
+   private jwtService: JwtService,
+   private eventService: EventService,
+   private ngZone: NgZone,
     private router: Router) { }
       ngOnInit() {
         // @ts-ignore
@@ -41,6 +39,21 @@ export class LoginComponent {
       async handleCredentialResponse(response: any) {
         // Here will be your response from Google.
         console.log(response);
-        this.router.navigate(['home'])
+        const token = response.credential;
+        this.jwtService.setToken(response.credential);
+        if (token) {
+          const decodedToken = this.jwtService.decodeToken(token);
+          this.ngZone.run(() => {
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
+            console.log('Decoded Token:', decodedToken);
+            const eventData = { loggedIn: true, user: decodedToken['name']};
+            this.eventService.emitEvent(eventData);
+            this.router.navigate(['booking'])
+          });
+        } else {
+          console.log('Token not found.');
+        }
+        
       }
 }
