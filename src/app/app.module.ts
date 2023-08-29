@@ -15,11 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { HomeComponent } from './home/home.component';
-// import {
-//   SocialLoginModule,
-//   SocialAuthServiceConfig,
-// } from '@abacritt/angularx-social-login';
-// import { GoogleLoginProvider,  GoogleSigninButtonDirective } from '@abacritt/angularx-social-login';
+import { AddPreferenceComponent } from './preferences/add-preference/add-preference.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +27,7 @@ import { HomeComponent } from './home/home.component';
     SideMenuNavComponent,
     PreferencesComponent,
     HomeComponent,
+    AddPreferenceComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+{
+    "preferences": {
+        "items": [
+            {
+                "id": 1,
+                "key": "infras",
+                "value": "SDSDB1"
+            },
+            {
+                "id": 2,
+                "key": "floors",
+                "value": "F2"
+            }
+        ],
+        "_meta": {
+            "count": 2
+        }
+    }
+}

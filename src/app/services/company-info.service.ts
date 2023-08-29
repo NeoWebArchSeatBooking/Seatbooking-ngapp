@@ -32,4 +32,23 @@ export class CompanyInfoService {
       return this.seatInformation;
     })));
   }
+
+  getInfraOptions() {
+    return  of({
+      "items": [
+        {
+          "key": "infras",
+          "displayValue": "Locations"
+        },
+        {
+          "key": "blocks",
+          "displayValue": "Block"
+        },
+        {
+          "key": "floors",
+          "displayValue": "Floor"
+        }
+      ]
+    });
+  }
 }
