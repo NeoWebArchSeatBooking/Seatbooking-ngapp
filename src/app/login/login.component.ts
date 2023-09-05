@@ -49,7 +49,7 @@ export class LoginComponent {
             console.log('Decoded Token:', decodedToken);
             const eventData = { loggedIn: true, user: decodedToken['name']};
             this.eventService.emitEvent(eventData);
-            this.router.navigate(['booking'])
+            this.router.navigate(['home'])
           });
         } else {
           console.log('Token not found.');

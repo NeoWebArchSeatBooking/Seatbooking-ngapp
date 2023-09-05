@@ -18,4 +18,17 @@ export class PreferenceService {
     };
     return this.apiService.httpGet('preferences',null, config);
   }
+
+  addPreference(preference:any) {
+    const body = {
+      key: preference.key,
+      value: preference.selected.value  
+    };
+    
+    const config:IAPIConfiguration = {
+      group: 'preference',
+      key: 'post-preferences'
+    };
+    return this.apiService.httpPost('preferences', body, config);
+  }
 }

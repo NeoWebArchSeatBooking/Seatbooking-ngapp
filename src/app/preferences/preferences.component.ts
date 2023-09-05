@@ -90,6 +90,7 @@ export class PreferencesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
+      this.getData();
     });
   }
 }

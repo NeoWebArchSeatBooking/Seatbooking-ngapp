@@ -7,15 +7,17 @@ import { NewBookingComponent } from './new-booking/new-booking.component';
 import { AllBookingComponent } from './booking/all-booking/all-booking.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { HomeComponent } from './home/home.component';
+import { ListPreferenceComponent } from './preferences/list-preference/list-preference.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   { path: 'new', component : NewBookingComponent, canActivate:[authGuard]},
   { path: 'login', component : LoginComponent},
   { path: 'preferences', component: PreferencesComponent, canActivate:[authGuard]},
+  { path: 'list-preferences', component: ListPreferenceComponent, canActivate:[authGuard]},
   { path: 'booking', component: BookingComponent, canActivate:[authGuard]},
   { path: 'booking/all', component: AllBookingComponent, canActivate:[authGuard]},
+  { path: 'home', component: HomeComponent, canActivate:[authGuard]},
   { path: '**', component: LoginComponent, canActivate:[authGuard]},
-  { path: 'home', component: BookingComponent, canActivate:[authGuard]},
 ];
 
 @NgModule({

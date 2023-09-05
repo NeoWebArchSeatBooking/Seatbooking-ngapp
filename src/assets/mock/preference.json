@@ -4,16 +4,24 @@
             {
                 "id": 1,
                 "key": "infras",
-                "value": "SDSDB1"
+                "value": "KOC"
             },
             {
                 "id": 2,
+                "key": "blocks",
+                "value": "TCO_SDB2"
+            },
+            {
+                "id": 3,
                 "key": "floors",
-                "value": "F2"
+                "value": "KOC_SDB1_F1"
             }
         ],
         "_meta": {
             "count": 2
         }
+    },
+    "post-preference": {
+        "id": 100
     }
 }

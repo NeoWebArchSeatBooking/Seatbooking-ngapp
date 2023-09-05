@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { floor } from 'lodash';
 import { forkJoin } from 'rxjs';
 import { CompanyInfoService } from 'src/app/services/company-info.service';
 import { PreferenceService } from 'src/app/services/preference.service';
+import { UtilityService } from 'src/app/shared/service/utility/utility.service';
 
 @Component({
   selector: 'app-add-preference',
@@ -24,6 +24,7 @@ export class AddPreferenceComponent implements OnInit {
     public dialogRef: MatDialogRef<AddPreferenceComponent>,
     private preferenceService: PreferenceService,
     private infraService: CompanyInfoService,
+    private utilityService: UtilityService
   ) { }
   ngOnInit(): void {
     this.getData();
@@ -50,18 +51,21 @@ export class AddPreferenceComponent implements OnInit {
     infras.forEach((loc: any) => {
       this.infraInformation.infras.push({
         id: loc.locationId,
-        name: loc.locationName
+        name: loc.locationName,
+        type: "LOCATION"
       });
       if (loc.blocks) {
         loc.blocks.forEach((block: any) => {
           this.infraInformation.blocks.push({
             id: `${loc.locationId}_${block.blockId}`,
-            name: `${loc.locationName}_${block.blockName}`
+            name: `${loc.locationName}_${block.blockName}`,
+            type: "BLOCK"
           });
           block.floors.forEach((floor:any) => {
             this.infraInformation.floors.push({
               id: `${loc.locationId}_${block.blockId}_${floor.floorId}`,
-              name: `${loc.locationName}_${block.blockName}_${floor.floorId}`
+              name: `${loc.locationName}_${block.blockName}_${floor.floorId}`,
+              type: "FLOOR"
             });
           });
         });
@@ -73,7 +77,11 @@ export class AddPreferenceComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {
-    
+  onSave() {
+    console.log(this.preference);
+    this.preferenceService.addPreference(this.preference).subscribe(res => {
+      this.utilityService.showSuccessAlert('Preference added successfully');
+      this.dialogRef.close();
+    });
   }
 }

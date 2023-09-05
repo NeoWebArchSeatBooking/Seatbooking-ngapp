@@ -25,6 +25,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { MatCardModule } from '@angular/material/card';
@@ -61,7 +62,8 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatGridListModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule
   ],
   exports: [
     MatTableModule,
@@ -87,6 +89,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatGridListModule,
     MatCardModule,
+    MatRadioModule,
 
     ConfirmationComponent,
     NoPermissionComponent,

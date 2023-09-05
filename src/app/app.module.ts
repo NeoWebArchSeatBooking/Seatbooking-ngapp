@@ -16,6 +16,7 @@ import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { HomeComponent } from './home/home.component';
 import { AddPreferenceComponent } from './preferences/add-preference/add-preference.component';
+import { ListPreferenceComponent } from './preferences/list-preference/list-preference.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddPreferenceComponent } from './preferences/add-preference/add-prefere
     PreferencesComponent,
     HomeComponent,
     AddPreferenceComponent,
+    ListPreferenceComponent,
   ],
   imports: [
     BrowserModule,
