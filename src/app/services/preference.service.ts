@@ -22,7 +22,7 @@ export class PreferenceService {
   addPreference(preference:any) {
     const body = {
       key: preference.key,
-      value: preference.selected.value  
+      value: preference.selected.id  
     };
     
     const config:IAPIConfiguration = {
