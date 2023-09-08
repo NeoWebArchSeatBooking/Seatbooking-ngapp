@@ -2,8 +2,9 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 //import { saveToSession } from "../auth/auth.guard";
 import { EventService } from './../event.service';
-import { saveToSession } from '../auth/auth.guard';
+//import { saveToSession } from '../auth/auth.guard';
 import {JwtService} from './../jwt.service';
+//import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,8 @@ export class LoginComponent {
       ngOnInit() {
         // @ts-ignore
         google.accounts.id.initialize({
-          client_id: "977119794798-6ive73s71laua0pq4nt0eq3jgs1chiq5.apps.googleusercontent.com",
+          client_id: "601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj.apps.googleusercontent.com",
+          //client_id: `${environment.clientKey}.apps.googleusercontent.com`,
           callback: this.handleCredentialResponse.bind(this),
           auto_select: false,
           cancel_on_tap_outside: true,

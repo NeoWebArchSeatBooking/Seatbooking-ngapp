@@ -23,7 +23,7 @@ export class CompanyInfoService {
     const config:IAPIConfiguration = {
       group: 'infra',
       key: 'facilities',
-      overrideResourcePath: 'idp'
+     // overrideResourcePath: 'idp'
     };
     if(this.seatInformation) {
       return of(this.seatInformation);
