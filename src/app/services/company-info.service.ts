@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
+import { map, of } from 'rxjs';
 // import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 
 @Injectable({
@@ -8,6 +9,7 @@ import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration'
 })
 export class CompanyInfoService {
 
+  seatInformation:any;
   constructor(private apiService: ApiService) { }
 
   fetchSeatingInformation() {
@@ -20,8 +22,34 @@ export class CompanyInfoService {
 
     const config:IAPIConfiguration = {
       group: 'infra',
-      key: 'facilities'
+      key: 'facilities',
+     // overrideResourcePath: 'idp'
     };
-    return this.apiService.httpGet('facilities', null, config);
+    if(this.seatInformation) {
+      return of(this.seatInformation);
+    }
+    return this.apiService.httpGet('facilities', null, config).pipe((map(res => {
+      this.seatInformation = res;
+      return this.seatInformation;
+    })));
+  }
+
+  getInfraOptions() {
+    return  of({
+      "items": [
+        {
+          "key": "infras",
+          "displayValue": "Locations"
+        },
+        {
+          "key": "blocks",
+          "displayValue": "Block"
+        },
+        {
+          "key": "floors",
+          "displayValue": "Floor"
+        }
+      ]
+    });
   }
 }

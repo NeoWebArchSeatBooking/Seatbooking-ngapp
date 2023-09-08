@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Add Preference</h1>
+<form #preferenceFrm="ngForm"
+    (ngSubmit)="onSave()">
+    <div mat-dialog-content>
+        <div>
+            <mat-form-field>
+                <mat-label>Select Preference</mat-label>
+                <mat-select required
+                    name="key"
+                    #key="ngModel"
+                    [(ngModel)]="preference.key"
+                    (selectionChange)="onChange($event)">
+                    <mat-option *ngFor="let option of infraOptions"
+                        [value]="option.key">{{option.displayValue}}</mat-option>
+                </mat-select>
+                <mat-error>Field is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field *ngIf="preference?.key">
+                <mat-label>Select value</mat-label>
+                <mat-select required
+                    [(ngModel)]="preference.selected"
+                    #value="ngModel"
+                    name="value">
+                    <mat-option *ngFor="let option of infraInformation[preference.key]"
+                        [value]="option">{{option.name}}</mat-option>
+                </mat-select>
+                <mat-error>Field is required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button
+            (click)="onCancel()">Cancel</button>
+        <button mat-button
+            type="submit"
+            [disabled]="!preferenceFrm.valid"
+            cdkFocusInitial>Submit</button>
+    </div>
+</form>

@@ -23,7 +23,7 @@ export class AlertComponent implements OnInit, OnDestroy {
   ngOnInit() {
       // subscribe to new alert notifications
       this.alertSubscription = this.alertService.onAlert(this.id)
-          .subscribe(alert => {
+          .subscribe((alert:any) => {
               // clear alerts when an empty alert is received
               if (!alert.message) {
                   // filter out alerts without 'keepAfterRouteChange' flag
@@ -44,7 +44,7 @@ export class AlertComponent implements OnInit, OnDestroy {
          });
 
       // clear alerts on location change
-      this.routeSubscription = this.router.events.subscribe(event => {
+      this.routeSubscription = this.router.events.subscribe((event:any) => {
           if (event instanceof NavigationStart) {
               this.alertService.clear(this.id);
           }

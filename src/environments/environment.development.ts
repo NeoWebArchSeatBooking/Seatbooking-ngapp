@@ -1,6 +1,6 @@
 export const environment = {
-    baseURL: 'http://127.0.0.1:50788',
-    resourcePath: 'v1/seat-management',
+    baseURL: '/api',
+    resourcePath: 'sbapi',
     isMock: true,
-    clientKey: '601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj'
+    clientKey: '977119794798-6ive73s71laua0pq4nt0eq3jgs1chiq5'
 };

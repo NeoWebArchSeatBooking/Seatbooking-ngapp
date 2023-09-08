@@ -1,14 +1,28 @@
-<div class="menu">
-  <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-     <mat-icon>menu</mat-icon>
-   </button>
-   <span>Seat Booking</span>
- </mat-toolbar>
-</div>
-<div>
-  <app-busy-loader></app-busy-loader>
-</div>
-<div class="content">
-  <router-outlet></router-outlet>
+<div class="container">
+
+    <mat-toolbar *ngIf="receivedMessage" color="primary" class="toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="app-name" routerLink="/home">
+            Seat Booking Application</h1>
+        <span class="example-spacer"></span>
+        <h3 class="app-name" routerLink="/home">
+            {{user}}</h3>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
+        <mat-sidenav #snav [mode]="'side'">
+            <app-side-menu-nav></app-side-menu-nav>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div>
+                <app-alert></app-alert>
+                <app-busy-loader></app-busy-loader>
+            </div>
+            <div class="content">
+                <router-outlet></router-outlet>
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>

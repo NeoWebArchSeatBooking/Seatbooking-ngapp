@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IColumnDefinition } from './interfaces/icolumn-definition';
 import { ColumnDefintionModel } from './models/column-defintion-model';
-import * as _ from 'lodash';
+import { get } from 'lodash';
 import { ITableConfiguration } from './interfaces/itable-configuration';
 import { IColumnFilter } from './interfaces/icolumn-filter';
 import { columnFilterConditon } from './enums/table-view';
@@ -60,7 +60,7 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
    * @returns 
    */
   getValue(obj:any, key:any) {
-    return _.get(obj, key);
+    return get(obj, key);
   }
 
   /**

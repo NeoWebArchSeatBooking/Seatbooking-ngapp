@@ -1,15 +1,17 @@
-import { inject } from '@angular/core';
-import { Router } from '@angular/router';
+//import { inject } from '@angular/core';
+//import { Router } from '@angular/router';
 
 export const authGuard = () => {
-  const router = inject(Router);
-  const userId = getFromSession("userId")
-  if (userId !== null) {
-    return true;
-  }
-  // Redirect to the login page
-  router.navigate(['login'])
-  return false;
+
+  return true;
+ // const router = inject(Router);
+  //const userId = getFromSession("userId")
+  // if (userId !== null) {
+  //   return true;
+  // }
+  // // Redirect to the login page
+  // router.navigate(['login'])
+  // return false;
 };
 
 export const saveToSession = (key:string,value:string,ttl:number=900000)=>{

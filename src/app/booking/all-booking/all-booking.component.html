@@ -1,0 +1,67 @@
+<div>
+  <h3>All Booking</h3>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Advanced Search 
+      </mat-panel-title>
+     
+    </mat-expansion-panel-header>
+    <form class="search">
+      <div>
+        <mat-form-field class="location">
+          <mat-label>User name</mat-label>
+          <input matInput
+            name="user"
+            [(ngModel)] = "search.user"
+            placeholder="user name"
+          />
+        </mat-form-field>
+      </div>
+      <div> Booking Date</div>
+      <div>
+        <mat-form-field>
+          <mat-label>From</mat-label>
+          <input 
+            name="fromDate"
+            [(ngModel)] = "search.fromDate"
+            matInput 
+            [matDatepicker]="picker1">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix
+            [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>To</mat-label>
+          <input matInput
+          [(ngModel)] = "search.toDate"
+          matInput 
+            name = "toDate"
+            [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix
+            [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="btn_search">
+        <button mat-raised-button
+          (click) = "searchAction()"
+          color="primary">Search</button>
+
+          <button mat-raised-button
+          color="primary">Cancel</button>
+      </div>
+    </form>
+  </mat-expansion-panel>
+</div>
+
+<div>
+  <app-table-view #tableView
+    (paginationChange) = "loadData($event)"
+    [configuration]="configuration"
+    [columnDefinition]="columnDefinition">
+  </app-table-view>
+</div>
