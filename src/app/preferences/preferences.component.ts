@@ -70,7 +70,7 @@ export class PreferencesComponent implements OnInit {
       this.infraService.getInfraOptions(),
       this.preferenceService.getPreferences()
     ]).subscribe(res => {
-      const data = this.processData(res[1].items, res[0].items);
+      const data = this.processData(res[1].preferences, res[0].items);
       this.tableView?.setData(data);
       this.tableView?.setTotalSize(data.length);
     })
