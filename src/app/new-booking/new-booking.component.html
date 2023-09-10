@@ -11,31 +11,46 @@
     </div>
     <div>
         <mat-form-field>
-            <mat-label>Select Building</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-label>Select Location</mat-label>
+            <mat-select required name="location" #location="ngModel" [(ngModel)]="selectedSeat.location"
+                (selectionChange)="locationChange($event)">
+                <mat-option *ngFor="let option of locations"
+                    [value]="option.locationId">{{option.locationName}}</mat-option>
             </mat-select>
+            <mat-error>Field is required</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Select Block</mat-label>
+            <mat-select required name="block" #block="ngModel" [(ngModel)]="selectedSeat.block"
+                (selectionChange)="blockChange($event)">
+                <mat-option *ngFor="let option of blocks" [value]="option.blockId">{{option.blockName}}</mat-option>
+            </mat-select>
+            <mat-error>Field is required</mat-error>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field>
             <mat-label>Select Floor</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-select required name="floor" #floor="ngModel" [(ngModel)]="selectedSeat.floor"
+                (selectionChange)="floorChange($event)">
+                <mat-option *ngFor="let option of floors" [value]="option.floorId">{{option.floorId}}</mat-option>
             </mat-select>
+            <mat-error>Field is required</mat-error>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field>
             <mat-label>Select Seat</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-select required name="seat" #seat="ngModel" [(ngModel)]="selectedSeat.seat"
+                (selectionChange)="seatChange($event)">
+                <mat-option *ngFor="let option of seats" [value]="option.seatId">{{option.seatId}}</mat-option>
             </mat-select>
+            <mat-error>Field is required</mat-error>
         </mat-form-field>
     </div>
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>

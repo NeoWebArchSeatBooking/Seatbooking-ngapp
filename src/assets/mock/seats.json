@@ -1,0 +1,319 @@
+{
+  "seats": [
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A101",
+      "seatType": "row seat",
+      "seatLocation": "window side"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A102",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A103",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A104",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A105",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A106",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A107",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A108",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A109",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A110",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A111",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A201",
+      "seatType": "row seat",
+      "seatLocation": "window side"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A202",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A203",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A204",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A205",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A206",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A207",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A208",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A209",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A210",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "A211",
+      "seatType": "row seat",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C101",
+      "seatType": "conference",
+      "seatLocation": "entrance side"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C102",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C103",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C104",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C105",
+      "seatType": "conference",
+      "seatLocation": "front"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C106",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C107",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C109",
+      "seatType": "conference",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "C110",
+      "seatType": "conference",
+      "seatLocation": "front"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "M101",
+      "seatType": "cubicle",
+      "seatLocation": "entrance side"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "M102",
+      "seatType": "cubicle",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "M103",
+      "seatType": "cubicle",
+      "seatLocation": "middle"
+    },
+    {
+      "available": true,
+      "locationId": "TCO",
+      "blockId": "SDB2",
+      "floorId": "F1",
+      "seatId": "M104",
+      "seatType": "cubicle",
+      "seatLocation": "middle"
+    }
+  ]
+}
