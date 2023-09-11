@@ -8,7 +8,6 @@ import { CompanyInfoService } from '../services/company-info.service';
 })
 export class NewBookingComponent {
   selectedSeat: any = {};
-  availableSeats: any;
   locations: any;
   blocks: any;
   floors: any;
@@ -23,34 +22,34 @@ export class NewBookingComponent {
     this.getData();
   }
 
-  private getData() {
+  getData() {
     this.infraService.fetchSeatingInformation().subscribe((res) => {
-      this.availableSeats = res.seats;
       this.locations = res.infras;
-      console.log(this.locations);
     });
   }
 
   locationChange(x: any): void {
     this.blocks = this.locations.find((loc: any) => loc.locationId === x.value).blocks;
+    this.selectedSeat.block = null;
+    this.selectedSeat.floor = null;
+    this.selectedSeat.seat = null;
     this.floors = [];
     this.seats = [];
   }
 
   blockChange(y: any) {
     this.floors = this.blocks.find((bloc: any) => bloc.blockId === y.value).floors;
+    this.selectedSeat.floor = null;
+    this.selectedSeat.seat = null;
     this.seats = [];
   }
 
   floorChange(y: any) {
+    this.selectedSeat.seat = null;
+    this.seats = [];
     this.infraService.fetchAvailableSeats(this.selectedSeat).subscribe((res: any) => {
       this.seats = res;
     });
-    // this.seats = this.availableSeats.filter((seat: any) => {
-    //   return seat.locationId === this.selectedSeat.location &&
-    //     seat.blockId === this.selectedSeat.block &&
-    //     seat.floorId === y.value;
-    // });
   }
 
   seatChange(y: any): void {
