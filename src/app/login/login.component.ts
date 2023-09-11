@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { EventService } from './../event.service';
 //import { saveToSession } from '../auth/auth.guard';
 import {JwtService} from './../jwt.service';
+import { AuthService } from '../services/auth.service';
 //import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
   constructor(
    private jwtService: JwtService,
    private eventService: EventService,
+   private authService: AuthService,
    private ngZone: NgZone,
     private router: Router) { }
       ngOnInit() {
@@ -46,12 +48,14 @@ export class LoginComponent {
         if (token) {
           const decodedToken = this.jwtService.decodeToken(token);
           this.ngZone.run(() => {
-            localStorage.setItem('loggedIn', 'true');
-            localStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
-            console.log('Decoded Token:', decodedToken);
+            sessionStorage.setItem('loggedIn', 'true');
+            sessionStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
             const eventData = { loggedIn: true, user: decodedToken['name']};
             this.eventService.emitEvent(eventData);
-            this.router.navigate(['home'])
+            const response = this.authService.getUserDetails(token);
+            if (response) {
+            }
+            
           });
         } else {
           console.log('Token not found.');

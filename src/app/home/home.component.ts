@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  ngOnInit() {
+    // call api to fetch user name role
+    // this.logIt('OnInit');
+  }
 }

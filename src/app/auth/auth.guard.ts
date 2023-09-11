@@ -1,17 +1,17 @@
-//import { inject } from '@angular/core';
-//import { Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 export const authGuard = () => {
 
-  return true;
- // const router = inject(Router);
-  //const userId = getFromSession("userId")
-  // if (userId !== null) {
-  //   return true;
-  // }
-  // // Redirect to the login page
-  // router.navigate(['login'])
-  // return false;
+  const router = inject(Router);
+  const userId = getFromSession("Name")
+  if (userId !== null) {
+    return true;
+  }
+  else 
+  // Redirect to the login page
+  router.navigate(['login'])
+  return false;
 };
 
 export const saveToSession = (key:string,value:string,ttl:number=900000)=>{
@@ -27,14 +27,14 @@ export const getFromSession = (key:string)=>{
     if (!itemStr) {
         return null
     }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
+    // const item = JSON.parse(itemStr)
+    // const now = new Date()
     // compare the expiry time of the item with the current time
-    if (now.getTime() > item.expiry) {
-        // If the item is expired, delete the item from storage
-        // and return null
-        localStorage.removeItem(key)
-        return null
-    }
-    return item.value
+    // if (now.getTime() > item.expiry) {
+    //     // If the item is expired, delete the item from storage
+    //     // and return null
+    //     localStorage.removeItem(key)
+    //     return null
+    // }
+    return itemStr
 }
