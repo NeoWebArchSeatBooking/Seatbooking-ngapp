@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from '../services/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login.component';
 
@@ -14,7 +15,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [HttpClientTestingModule, SharedModule, BrowserAnimationsModule, MatCardModule],
-      providers: []
+      providers: [AuthService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);

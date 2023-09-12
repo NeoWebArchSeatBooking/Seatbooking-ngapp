@@ -16,15 +16,8 @@ export class MockService {
 
   fetchData(configuration:IAPIConfiguration, params?:any) {
     return this.httpClient.get(`/assets/mock/${configuration.group}.json`).pipe(map((res:any) => {
-      let data = res[configuration.key];
-      // let output = [];
-      // if(params && data?.items) {
-      //   for(let  i=params.offset; i<params.limit; i++) {
-      //     output.push(data.items[i]);
-      //   }
-      //   data.items = output;
-      //   return data;
-      // }
+      const data = res[configuration.key];
+      console.log(`${params} not used in mock`)
       return data;
     })).pipe(catchError(err => {
       if(!(configuration && configuration.muteNotifyError)) {

@@ -124,7 +124,7 @@ export class NewBookingComponent {
   }
 
   bookASeat(req: SeatBookReq): void {
-    this.bookingService.bookASeat(req).subscribe(res=>{
+    this.bookingService.bookASeat(req).subscribe(()=>{
       this.utilityService.showSuccessAlert('Seat Booked successfully');
       this.router.navigate(['/booking']);
     })

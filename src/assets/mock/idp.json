@@ -1,0 +1,12 @@
+{
+    "status": {
+        "profile": {
+            "userId": "user@test.com",
+            "name": "Demo User",
+            "role": "admin"
+        },
+        "metadata": {
+            "status": 200
+        }
+    }
+}

@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-import * as moment from 'moment';
 import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 
@@ -12,14 +8,12 @@ import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration'
 export class AuthService {
   constructor(private apiService: ApiService) { }
 
-
-  getUserDetails(token: any ,params?:any ) {
-    const headers = {
-      Authorization: `Bearer ${token}`
-    };
-   window.alert('reached here');
-    //return this.apiService.httpGet('booking/seats', , config);//
-    return this.apiService.httpGet('idp/status',headers)
+  getUserDetails() {
+    const config:IAPIConfiguration = {
+      group : 'idp',
+      key: 'status'
+    }
+    return this.apiService.httpGet('idp/status',null,config)
   }
 
 }

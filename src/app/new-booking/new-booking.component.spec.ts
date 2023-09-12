@@ -88,8 +88,9 @@ describe('NewBookingComponent', () => {
   });
 
   it('should call fetch seats when floor is changed', () => {
-    const spy = spyOn(companyInfoService, 'fetchAvailableSeats').and.returnValue(of({}));
-    component.floorChange({ value: 1 });
+    const spy = spyOn(companyInfoService, 'fetchAvailableSeats').and.returnValue(of({seats:[]}));
+    component.searchParams = {date:'12/12/2023',locationId:'l1',blockId:'b1'}
+    component.floorChange();
     expect(spy).toHaveBeenCalled();
   });
 });
