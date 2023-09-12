@@ -11,9 +11,7 @@ export class BookingService {
   constructor(private apiService: ApiService) { }
 
   getBooking(params?:any) {
-    //return this.http.get('https://jsonblob.com/api/jsonBlob/1137717948520980480');
-    //return this.http.get('https://jsonblob.com/api/jsonBlob/1140605340093374464');
-    //return this.apiService.httpGet('1140605340093374464');
+    
     const config: IAPIConfiguration = {
       group: 'booking',
       key: 'seats'
@@ -35,6 +33,21 @@ export class BookingService {
       }
     }
     return this.apiService.httpGet('booking/seats', qp, config);
+  }
+
+  bookASeat(params:any) {
+    const config: IAPIConfiguration = {
+      group: 'booking',
+      key: 'seats'
+    };
+    const reqBody:any = {
+      locationId: params.locationId,
+      blockId: params.blockId,
+      floorId: params.floorId,
+      seatId: params.seatId,
+      date: moment(params.date).format('DD-MM-yyyy'),
+    };
+    return this.apiService.httpPost('booking/seats', reqBody, config);
   }
 
  

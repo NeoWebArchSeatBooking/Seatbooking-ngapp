@@ -1,9 +1,8 @@
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, of } from 'rxjs';
 import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
-import { map, of } from 'rxjs';
-import { HttpParams } from '@angular/common/http';
-// import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +13,9 @@ export class CompanyInfoService {
   constructor(private apiService: ApiService) { }
 
   fetchSeatingInformation() {
-    /*const config:IAPIConfiguration = {
-      overrideBaseURL: 'https://jsonblob.com',
-      overrideResourcePath: 'api/jsonBlob'
-    };
-    return this.apiService.httpGet('1140606227507437568', null, config);
-    */
-
     const config: IAPIConfiguration = {
       group: 'infra',
       key: 'facilities',
-     // overrideResourcePath: 'idp'
     };
     if (this.seatInformation) {
       return of(this.seatInformation);
@@ -35,16 +26,16 @@ export class CompanyInfoService {
     })));
   }
 
-  fetchAvailableSeats(seatFilters: { locationId: any, blockId: any, floorId: any }) {
+  fetchAvailableSeats(seatSearchParams: { date: string, locationId: string, blockId: string, floorId?: string}) {
     const config: IAPIConfiguration = {
       group: 'seats',
       key: 'seats',
-      overrideResourcePath: 'idp'
     };
     const params = new HttpParams();
-    params.append('locationId', seatFilters.locationId);
-    params.append('blockId', seatFilters.blockId);
-    params.append('floorId', seatFilters.floorId);
+    params.append('date', seatSearchParams.date);
+    params.append('locationId', seatSearchParams.locationId);
+    params.append('blockId', seatSearchParams.blockId);
+    params.append('floorId', seatSearchParams.floorId);
     return this.apiService.httpGet('seats', params, config);
   }
 
