@@ -1,11 +1,9 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { saveToSession } from "../auth/auth.guard";
-import { EventService } from './../event.service';
-//import { saveToSession } from '../auth/auth.guard';
-import {JwtService} from './../jwt.service';
 import { AuthService } from '../services/auth.service';
-//import { environment } from 'src/environments/environment';
+import { EventService } from './../event.service';
+import { JwtService } from './../jwt.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +23,6 @@ export class LoginComponent implements OnInit {
         // @ts-ignore
         google.accounts.id.initialize({
           client_id: "601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj.apps.googleusercontent.com",
-          //client_id: `${environment.clientKey}.apps.googleusercontent.com`,
           callback: this.handleCredentialResponse.bind(this),
           auto_select: false,
           cancel_on_tap_outside: true,
@@ -38,7 +35,7 @@ export class LoginComponent implements OnInit {
           { theme: "outline", size: "large", width: "100%" }
         );
         // @ts-ignore
-        google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+        // google.accounts.id.prompt((notification: PromptMomentNotification) => {});
       } 
       async handleCredentialResponse(response: any) {
         // Here will be your response from Google.
@@ -50,12 +47,14 @@ export class LoginComponent implements OnInit {
           this.ngZone.run(() => {
             sessionStorage.setItem('loggedIn', 'true');
             sessionStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
-            const eventData = { loggedIn: true, user: decodedToken['name']};
-            this.eventService.emitEvent(eventData);
-            const response = this.authService.getUserDetails(token);
-            if (response) {
-            }
-            
+            const eventData = { loggedIn: true, user: decodedToken['name'], role: ''};
+            this.authService.getUserDetails().subscribe((res)=>{
+                const role = res.profile.role ?? 'user'
+                sessionStorage.setItem('role', role);
+                eventData.role = role
+                this.eventService.emitEvent(eventData);
+                this.router.navigate(['/home'])
+            })
           });
         } else {
           console.log('Token not found.');

@@ -17,7 +17,7 @@ export class BookingService {
       key: 'seats'
     };
 
-    let qp:any = {};
+    const qp:any = {};
     if(params?.filter) {
       if(params.filter.viewRole) {
         qp.viewRole = params.filter.viewRole;
