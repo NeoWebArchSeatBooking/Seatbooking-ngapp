@@ -63,7 +63,7 @@
                         (click)="actionConfig?.action!(element)"
                         mat-icon-button
                         [matTooltip] = "actionConfig.tooltip ? actionConfig.tooltip: ''"
-                        
+                        [disabled] = "actionConfig.actionEnableField ? !getValue(element,actionConfig.actionEnableField): 'false'"
                         color="primary">
                         <mat-icon>{{actionConfig?.iconName}}</mat-icon>
                     </button>

@@ -17,5 +17,6 @@ export interface IActionConfig {
     id: string;
     iconName: string;
     tooltip?:string;
+    actionEnableField?:string;
     action?: (item:any, index?:any)=>void;
 }
