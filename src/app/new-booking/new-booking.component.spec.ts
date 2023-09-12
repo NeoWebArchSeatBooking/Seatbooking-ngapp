@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewBookingComponent } from './new-booking.component';
-import { SharedModule } from '../shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CompanyInfoService } from '../services/company-info.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { of } from 'rxjs'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { of } from 'rxjs';
+import { CompanyInfoService } from '../services/company-info.service';
+import { SharedModule } from '../shared/shared.module';
+import { NewBookingComponent } from './new-booking.component';
 
 describe('NewBookingComponent', () => {
   let component: NewBookingComponent;
@@ -54,7 +54,7 @@ describe('NewBookingComponent', () => {
       { blockId: 3, blockName: 'Test3' },
       { blockId: 4, blockName: 'Test4' }
     ];
-    component.selectedSeat = {};
+    component.searchParams = {};
     component.locations = [{
       locationId: 1,
       blocks: blocks1
@@ -75,7 +75,7 @@ describe('NewBookingComponent', () => {
       { floorId: 3 },
       { floorId: 4 }
     ];
-    component.selectedSeat = { location: 1 };
+    component.searchParams = { location: 1 };
     component.blocks = [{
       blockId: 1,
       floors: floors1
