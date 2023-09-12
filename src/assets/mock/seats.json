@@ -1,5 +1,6 @@
 {
-  "seats": [
+  "seats": {
+    "seats": [
     {
       "available": true,
       "locationId": "TCO",
@@ -181,7 +182,7 @@
       "seatLocation": "middle"
     },
     {
-      "available": true,
+      "available": false,
       "locationId": "TCO",
       "blockId": "SDB2",
       "floorId": "F1",
@@ -315,5 +316,10 @@
       "seatType": "cubicle",
       "seatLocation": "middle"
     }
-  ]
+    ],
+    "_meta": {
+      "message": "Success",
+      "status": 200
+    }
+  }
 }

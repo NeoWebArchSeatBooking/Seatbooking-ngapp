@@ -37,5 +37,20 @@ export class BookingService {
     return this.apiService.httpGet('booking/seats', qp, config);
   }
 
+  bookASeat(params?:any) {
+    const config: IAPIConfiguration = {
+      group: 'booking',
+      key: 'seats'
+    };
+    const reqBody:any = {
+      locationId: params.locationId,
+      blockId: params.blockId,
+      floorId: params.floorId,
+      seatId: params.seatId,
+      date: moment(params.filter.fromDate).format('DD-MM-yyyy'),
+    };
+    return this.apiService.httpPost('booking/seats', reqBody, config);
+  }
+
  
 }

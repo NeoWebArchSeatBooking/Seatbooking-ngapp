@@ -19,8 +19,7 @@
             </mat-select>
             <mat-error>Field is required</mat-error>
         </mat-form-field>
-    </div>
-    <div>
+        &nbsp;
         <mat-form-field>
             <mat-label>Select Block</mat-label>
             <mat-select required name="block" #block="ngModel" [(ngModel)]="selectedSeat.block"
@@ -29,8 +28,7 @@
             </mat-select>
             <mat-error>Field is required</mat-error>
         </mat-form-field>
-    </div>
-    <div>
+        &nbsp;
         <mat-form-field>
             <mat-label>Select Floor</mat-label>
             <mat-select required name="floor" #floor="ngModel" [(ngModel)]="selectedSeat.floor"
@@ -40,6 +38,7 @@
             <mat-error>Field is required</mat-error>
         </mat-form-field>
     </div>
+    <!--
     <div>
         <mat-form-field>
             <mat-label>Select Seat</mat-label>
@@ -50,7 +49,9 @@
             <mat-error>Field is required</mat-error>
         </mat-form-field>
     </div>
-
+    -->
+    <app-table-view #tableView [configuration]="configuration" [columnDefinition]="columnDefinition" >
+    </app-table-view>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>

@@ -49,7 +49,7 @@ export class BookingComponent implements OnInit {
     return {
       add: true,
       addConfig: {
-        label: 'Add new Booking'
+        label: 'Book a Seat'
       },
       serverRender: false,
       disableFullTextSearch: false,
