@@ -1,13 +1,13 @@
 <div>
   <h3>All Booking</h3>
-  <mat-expansion-panel [expanded]="true">
+  <mat-expansion-panel [expanded]="false">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Advanced Search 
       </mat-panel-title>
      
     </mat-expansion-panel-header>
-    <form class="search">
+    <form class="search" #searchForm="ngForm">
       <div>
         <mat-form-field class="location">
           <mat-label>User name</mat-label>
@@ -52,6 +52,7 @@
           color="primary">Search</button>
 
           <button mat-raised-button
+          (click)="searchForm.resetForm()"
           color="primary">Cancel</button>
       </div>
     </form>

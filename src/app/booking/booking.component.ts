@@ -58,13 +58,17 @@ export class BookingComponent implements OnInit {
           id: 'cancel',
           iconName: 'cancel',
           tooltip: 'Cancel Booking',
-          action: () => {
+          action: (item:any) => {
             this.utilityService.showConfirmation({
               data: {
                 title: 'Do you want to cancel Booking?'
               }
             }).subscribe((res: any) => {
               console.log(res);
+              console.log(item);
+              if(res) {
+                this.cancelBooking(item.id);
+              }
             });
           }
         }
@@ -113,6 +117,13 @@ export class BookingComponent implements OnInit {
       }
       return output;
     });
+  }
+
+  cancelBooking(id) {
+    this.bookingService.cancelBooking(id).subscribe(res => {
+      this.utilityService.showSuccessAlert('Booking got canceled successfully');
+      this.getData();
+    })
   }
 
   addNew() {

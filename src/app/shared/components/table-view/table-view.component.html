@@ -2,10 +2,10 @@
     <div style="float: right;">
         <mat-form-field *ngIf="!(configuration && (configuration.disableFullTextSearch))"
         >
-        <mat-label>Search User</mat-label>
+        <mat-label>Filter</mat-label>
         <input matInput
             (keyup)="applyFilter($event)"
-            placeholder="User Name"
+            placeholder="Search"
             #input>
         </mat-form-field>
     </div>

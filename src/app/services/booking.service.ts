@@ -50,5 +50,13 @@ export class BookingService {
     return this.apiService.httpPost('booking/seats', reqBody, config);
   }
 
+  cancelBooking(id:any) {
+    const config: IAPIConfiguration = {
+      group: 'booking',
+      key: 'cancel-booking'
+    };
+    return this.apiService.httpPatch('booking/cancel/'+id, null, config);
+  }
+
  
 }
