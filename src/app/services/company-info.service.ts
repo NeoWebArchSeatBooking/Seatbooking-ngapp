@@ -31,12 +31,12 @@ export class CompanyInfoService {
       group: 'seats',
       key: 'seats',
     };
-    const params = new HttpParams();
-    params.append('date', seatSearchParams.date);
-    params.append('locationId', seatSearchParams.locationId);
-    params.append('blockId', seatSearchParams.blockId);
-    params.append('floorId', seatSearchParams.floorId);
-    return this.apiService.httpGet('facilities/seats', params, config);
+    /*const params = {};
+    params.date = seatSearchParams.date;
+    params.locationId = seatSearchParams.locationId;
+    params.blockId = seatSearchParams.blockId;
+    params.floorId = seatSearchParams.floorId;*/
+    return this.apiService.httpGet('facilities/seats', seatSearchParams, config);
   }
 
 
