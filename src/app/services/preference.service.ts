@@ -37,6 +37,6 @@ export class PreferenceService {
       group: 'preference',
       key: 'cancel-preference'
     };
-    return this.apiService.httpPatch('preferences/cancel/'+id, null, config);
+    return this.apiService.httpPatch('preferences/'+id+'/cancel', null, config);
   }
 }

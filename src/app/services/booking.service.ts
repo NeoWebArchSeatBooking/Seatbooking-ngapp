@@ -55,7 +55,7 @@ export class BookingService {
       group: 'booking',
       key: 'cancel-booking'
     };
-    return this.apiService.httpPatch('booking/cancel/'+id, null, config);
+    return this.apiService.httpPatch('booking/'+id+'/cancel', null, config);
   }
 
  

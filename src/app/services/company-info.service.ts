@@ -1,5 +1,5 @@
-import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { map, of } from 'rxjs';
 import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
@@ -36,6 +36,7 @@ export class CompanyInfoService {
     params.locationId = seatSearchParams.locationId;
     params.blockId = seatSearchParams.blockId;
     params.floorId = seatSearchParams.floorId;*/
+    seatSearchParams.date = moment(seatSearchParams.date).format('DD-MM-yyyy');
     return this.apiService.httpGet('facilities/seats', seatSearchParams, config);
   }
 
