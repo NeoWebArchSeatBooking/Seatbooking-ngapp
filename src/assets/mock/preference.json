@@ -1,6 +1,6 @@
 {
     "preferences": {
-        "items": [
+        "preferences": [
             {
                 "id": 1,
                 "key": "infras",
@@ -23,5 +23,8 @@
     },
     "post-preference": {
         "id": 100
+    },
+    "cancel-preference": {
+        
     }
 }

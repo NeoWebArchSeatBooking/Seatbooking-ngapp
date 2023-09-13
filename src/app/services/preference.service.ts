@@ -31,4 +31,12 @@ export class PreferenceService {
     };
     return this.apiService.httpPost('preferences', body, config);
   }
+
+  cancelPreference(id:any) {
+    const config: IAPIConfiguration = {
+      group: 'preference',
+      key: 'cancel-preference'
+    };
+    return this.apiService.httpPatch('preferences/cancel/'+id, null, config);
+  }
 }

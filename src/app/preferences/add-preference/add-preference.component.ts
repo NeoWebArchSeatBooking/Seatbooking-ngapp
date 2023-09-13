@@ -79,7 +79,7 @@ export class AddPreferenceComponent implements OnInit {
 
   onSave() {
     console.log(this.preference);
-    this.preferenceService.addPreference(this.preference).subscribe(res => {
+    this.preferenceService.addPreference(this.preference).subscribe(() => {
       this.utilityService.showSuccessAlert('Preference added successfully');
       this.dialogRef.close();
     });

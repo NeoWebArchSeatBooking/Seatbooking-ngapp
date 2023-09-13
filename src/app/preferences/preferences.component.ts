@@ -51,13 +51,15 @@ export class PreferencesComponent implements OnInit {
           id: 'cancel',
           iconName: 'cancel',
           tooltip: 'Cancel Preference',
-          action: () => {
+          action: (item) => {
             this.utilityService.showConfirmation({
               data: {
                 title: 'Do you want to cancel Preference?'
               }
             }).subscribe((res: any) => {
-              console.log(res);
+              if(res) {
+                this.cancelPreference(item.id);
+              }
             });
           }
         }
@@ -81,6 +83,13 @@ export class PreferencesComponent implements OnInit {
       pre.infra = infraOptions.find((infra: any) => infra.key === pre.key);
     });
     return preferences;
+  }
+
+  cancelPreference(id) {
+    this.preferenceService.cancelPreference(id).subscribe(res => {
+      this.utilityService.showSuccessAlert('Preference got canceled successfully');
+      this.getData();
+    })
   }
 
   addNew() {
