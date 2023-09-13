@@ -36,7 +36,7 @@ export class CompanyInfoService {
     params.append('locationId', seatSearchParams.locationId);
     params.append('blockId', seatSearchParams.blockId);
     params.append('floorId', seatSearchParams.floorId);
-    return this.apiService.httpGet('seats', params, config);
+    return this.apiService.httpGet('facilities/seats', params, config);
   }
 
 
