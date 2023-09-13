@@ -31,13 +31,12 @@ export class CompanyInfoService {
       group: 'seats',
       key: 'seats',
     };
-    /*const params = {};
-    params.date = seatSearchParams.date;
+    const params:any = {};
+    params.date = moment(seatSearchParams.date).format('DD-MM-yyyy')
     params.locationId = seatSearchParams.locationId;
     params.blockId = seatSearchParams.blockId;
-    params.floorId = seatSearchParams.floorId;*/
-    seatSearchParams.date = moment(seatSearchParams.date).format('DD-MM-yyyy');
-    return this.apiService.httpGet('facilities/seats', seatSearchParams, config);
+    params.floorId = seatSearchParams.floorId;
+    return this.apiService.httpGet('facilities/seats', params, config);
   }
 
 
