@@ -19,11 +19,11 @@ export const saveToSession = (key:string,value:string,ttl:number=900000)=>{
 		"value": value,
 		"expiry": new Date().getTime() + ttl,
 	}
-   sessionStorage.setItem(key,JSON.stringify(item))
+    localStorage.setItem(key,JSON.stringify(item))
 }
 
 export const getFromSession = (key:string)=>{
-    const itemStr = sessionStorage.getItem(key)
+    const itemStr = localStorage.getItem(key)
     if (!itemStr) {
         return null
     }

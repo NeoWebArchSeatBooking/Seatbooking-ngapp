@@ -45,12 +45,12 @@ export class LoginComponent implements OnInit {
         if (token) {
           const decodedToken = this.jwtService.decodeToken(token);
           this.ngZone.run(() => {
-            sessionStorage.setItem('loggedIn', 'true');
-            sessionStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
             const eventData = { loggedIn: true, user: decodedToken['name'], role: ''};
             this.authService.getUserDetails().subscribe((res)=>{
                 const role = res.profile.role ?? 'user'
-                sessionStorage.setItem('role', role);
+                localStorage.setItem('role', role);
                 eventData.role = role
                 this.eventService.emitEvent(eventData);
                 this.router.navigate(['/home'])
@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
           });
         } else {
           console.log('Token not found.');
+          this.router.navigate(['/login'])
         }
         
       }

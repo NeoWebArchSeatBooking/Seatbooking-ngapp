@@ -10,7 +10,8 @@ export class AppComponent {
   title = 'seatBooking';
   receivedMessage: boolean = false;
   loggedIn = false;
-  user = 'NA'
+  user = 'NA';
+  role ='';
   subscriptions: Subscription[] = [];
 
   constructor(private eventService: EventService) { }
@@ -19,6 +20,7 @@ export class AppComponent {
     this.subscriptions.push(this.eventService.eventEmitter.subscribe((eventData: any) => {
       this.receivedMessage = eventData.loggedIn;
       this.user = eventData.user;
+      this.role = eventData.role;
     }));
   }
 
