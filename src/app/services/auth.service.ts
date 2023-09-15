@@ -13,7 +13,7 @@ export class AuthService {
       group : 'idp',
       key: 'status'
     }
-    return this.apiService.httpGet('idp/status',null,config)
+    return this.apiService.httpGet('idp/profile',null,config)
   }
 
 }
