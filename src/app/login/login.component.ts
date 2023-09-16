@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
           const decodedToken = this.jwtService.decodeToken(token);
           this.ngZone.run(() => {
             
-            const eventData = { loggedIn: true, user: decodedToken['name'], role: ''};
+            const eventData = { loggedIn: true, user: '', role: ''};
             this.authService.getUserDetails().subscribe((res)=>{
                 const name = res.profile.name ?? 'user'
                 const role = res.profile.role ?? 'NA'
@@ -65,7 +65,8 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('Role', role);
                 localStorage.setItem('ProfilePic', profilePic);
                 localStorage.setItem('loggedIn', 'true');
-                eventData.role = role
+                eventData.user = name;
+                eventData.role = role;
                 this.eventService.emitEvent(eventData);
                 this.router.navigate(['/home'])
             })

@@ -12,7 +12,7 @@ export class SideMenuNavComponent {
   showAllBooking: boolean = false;
   role ='';
   ngOnInit(): void {
-      this.role = localStorage.getItem('role');
+      this.role = localStorage.getItem('Role');
       if (this.role == 'admin'){
         this.showAllBooking = true;
       }
@@ -27,7 +27,7 @@ export class SideMenuNavComponent {
     this.jwtService.removeToken();
     // @ts-ignore
     google.accounts.id.disableAutoSelect();
-    const eventData = { loggedIn: false, user: 'NA'};
+    const eventData = { loggedIn: false, user: 'NA', role: 'NA'};
     this.eventService.emitEvent(eventData);
     this.router.navigate(['login']);
   }
