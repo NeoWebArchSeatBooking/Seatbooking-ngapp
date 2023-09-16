@@ -13,6 +13,14 @@ h1.app-name {
     cursor: pointer;
 }
 
+h3.user-details {
+    cursor: pointer;
+}
+
+h6.user-details {
+    cursor: pointer;
+}
+
 .sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
