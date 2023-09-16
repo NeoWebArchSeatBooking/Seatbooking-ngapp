@@ -11,7 +11,7 @@
       "seatLocation": "window side"
     },
     {
-      "available": true,
+      "available": false,
       "locationId": "TCO",
       "blockId": "SDB2",
       "floorId": "F1",

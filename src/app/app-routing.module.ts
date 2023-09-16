@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'preferences', component: PreferencesComponent, canActivate:[authGuard]},
   { path: 'list-preferences', component: ListPreferenceComponent, canActivate:[authGuard]},
   { path: 'booking', component: BookingComponent, canActivate:[authGuard]},
+  { path: 'booking/new', component: NewBookingComponent, canActivate:[authGuard]},
   { path: 'booking/all', component: AllBookingComponent, canActivate:[authGuard]},
   { path: 'home', component: HomeComponent, canActivate:[authGuard]},
   { path: '**', component: LoginComponent, canActivate:[authGuard]},

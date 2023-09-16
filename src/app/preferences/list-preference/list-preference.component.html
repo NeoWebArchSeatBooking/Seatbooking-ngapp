@@ -1,9 +1,22 @@
-<h3>Select your preference</h3>
-<mat-radio-group
-  aria-labelledby="radio-group-label"
-  class="radio-group"
-  (change) = "onChange($event)">
-  <mat-radio-button class="radio-button" *ngFor="let preference of preferences" [value]="preference">
-    {{preference.infra.displayValue}}: {{preference.value}}
-  </mat-radio-button>
-</mat-radio-group>
+<h3 mat-dialog-title>Select your preference</h3>
+<mat-dialog-content>
+  <mat-radio-group aria-labelledby="radio-group-label"
+    class="radio-group"
+    (change)="onChange($event)">
+    <mat-radio-button class="radio-button"
+      *ngFor="let preference of preferences"
+      [value]="preference">
+      {{preference.infra.displayValue}}: {{preference.value}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-dialog-actions>
+    <button mat-raised-button
+      mat-dialog-close
+      mat-button>Cancel</button> &nbsp;&nbsp;
+    <button mat-raised-button
+      mat-button
+      color="primary"
+      cdkFocusInitial
+      (click)="onSelect()">Search</button>
+  </mat-dialog-actions>
+</mat-dialog-content>
