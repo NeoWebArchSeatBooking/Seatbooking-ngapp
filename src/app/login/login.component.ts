@@ -20,21 +20,27 @@ export class LoginComponent implements OnInit {
    private ngZone: NgZone,
     private router: Router) { }
       ngOnInit() {
-        // @ts-ignore
-        google.accounts.id.initialize({
-          client_id: "601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj.apps.googleusercontent.com",
-          callback: this.handleCredentialResponse.bind(this),
-          auto_select: false,
-          cancel_on_tap_outside: true,
-      
-        });
-        // @ts-ignore
-        google.accounts.id.renderButton(
-        // @ts-ignore
-        document.getElementById("google-button"),
-          { theme: "outline", size: "large", width: "100%" }
-        );
-        // @ts-ignore
+    
+        const token =   this.jwtService.getToken();
+        if (!token){
+          // @ts-ignore
+          google.accounts.id.initialize({
+            client_id: "601004974015-n3jgfmkijvivhsdc5ajusln88k819bmj.apps.googleusercontent.com",
+            callback: this.handleCredentialResponse.bind(this),
+            auto_select: false,
+            cancel_on_tap_outside: true,
+          });
+          // @ts-ignore
+          google.accounts.id.renderButton(
+          // @ts-ignore
+          document.getElementById("google-button"),
+            { theme: "outline", size: "large", width: "100%" }
+          );
+          // @ts-ignore
+        }
+        else {
+          this.manageCredentials(token);
+        }
         // google.accounts.id.prompt((notification: PromptMomentNotification) => {});
       } 
       async handleCredentialResponse(response: any) {
@@ -42,15 +48,23 @@ export class LoginComponent implements OnInit {
         console.log(response);
         const token = response.credential;
         this.jwtService.setToken(response.credential);
+        this.manageCredentials(token);
+      }
+      manageCredentials(token:any) {
         if (token) {
           const decodedToken = this.jwtService.decodeToken(token);
           this.ngZone.run(() => {
-            localStorage.setItem('loggedIn', 'true');
-            localStorage.setItem('Name', decodedToken['name']?decodedToken['name']:'NA');
+            
             const eventData = { loggedIn: true, user: decodedToken['name'], role: ''};
             this.authService.getUserDetails().subscribe((res)=>{
-                const role = res.profile.role ?? 'user'
-                localStorage.setItem('role', role);
+                const name = res.profile.name ?? 'user'
+                const role = res.profile.role ?? 'NA'
+                const profilePic = res.profile.profilePic ?? 'NA'
+     
+                localStorage.setItem('Name', name);
+                localStorage.setItem('Role', role);
+                localStorage.setItem('ProfilePic', profilePic);
+                localStorage.setItem('loggedIn', 'true');
                 eventData.role = role
                 this.eventService.emitEvent(eventData);
                 this.router.navigate(['/home'])
@@ -60,6 +74,5 @@ export class LoginComponent implements OnInit {
           console.log('Token not found.');
           this.router.navigate(['/login'])
         }
-        
       }
 }
