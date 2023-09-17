@@ -1,20 +1,19 @@
 <div class="table-view">
     <div style="float: right;">
-        <mat-form-field *ngIf="!(configuration && (configuration.disableFullTextSearch))"
-        >
-        <mat-label>Filter</mat-label>
-        <input matInput
-            (keyup)="applyFilter($event)"
-            placeholder="Search"
-            #input>
+        <mat-form-field *ngIf="!(configuration && (configuration.disableFullTextSearch))">
+            <mat-label>Filter</mat-label>
+            <input matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Search"
+                #input />
         </mat-form-field>
     </div>
-    <div class="btn btn-primary add-new-button add-btn">
-        <button mat-button
-        mat-dialog-close
-        *ngIf="(configuration && (configuration.add))"
-        (click)="add()"
-        cdkFocusInitial>{{configuration.addConfig?.label? configuration.addConfig.label : 'Add'}}</button>
+    <div class="btn-add">
+        <button 
+            mat-raised-button color="primary"
+            *ngIf="(configuration && (configuration.add))"
+            (click)="add()"
+            cdkFocusInitial>{{configuration.addConfig?.label? configuration.addConfig.label : 'Add'}}</button>
     </div>
     <table mat-table
         matSort
@@ -58,15 +57,44 @@
                     *matHeaderCellDef> {{column.label}} </th>
                 <td mat-cell
                     *matCellDef="let element">
-                    <button *ngFor="let actionConfig of configuration.actionConfig"
-                        class="btn-action"
-                        (click)="actionConfig?.action!(element)"
-                        mat-icon-button
-                        [matTooltip] = "actionConfig.tooltip ? actionConfig.tooltip: ''"
-                        [disabled] = "actionConfig.actionEnableField ? !getValue(element,actionConfig.actionEnableField): 'false'"
-                        color="primary">
-                        <mat-icon>{{actionConfig?.iconName}}</mat-icon>
-                    </button>
+                    <ng-container *ngFor="let actionConfig of configuration.actionConfig">
+                        <button *ngIf="actionConfig.type !== actionType.BUTTON"
+                            class="btn-icon-action"
+                            (click)="actionConfig?.action!(element)"
+                            mat-icon-button
+                            [matTooltip]="actionConfig.tooltip ? actionConfig.tooltip: ''"
+                            [disabled]="actionConfig.disableOptions && getValue(element,actionConfig.disableOptions?.field) === actionConfig.disableOptions?.value ? true : false"
+                            color="primary">
+                            <span *ngIf="actionConfig?.disableOptions">
+                                <mat-icon>{{getValue(element,actionConfig.disableOptions.field) ===
+                                    actionConfig.disableOptions.value?
+                                    actionConfig.disableOptions.iconName : actionConfig.iconName}}</mat-icon>
+                            </span>
+                            <span *ngIf="!actionConfig?.disableOptions">
+                                <mat-icon>{{actionConfig?.iconName}}</mat-icon>
+                            </span>
+                        </button>
+
+                        <button *ngIf="actionConfig.type === actionType.BUTTON"
+                            class="btn-action"
+                            mat-raised-button
+                            (click)="actionConfig?.action!(element)"
+                            [matTooltip]="actionConfig.tooltip ? actionConfig.tooltip: ''"
+                            [disabled]="actionConfig.disableOptions && getValue(element,actionConfig.disableOptions?.field) === actionConfig.disableOptions?.value ? true : false"
+                            color="primary">
+                            <span *ngIf="actionConfig?.disableOptions">
+                                {{getValue(element,actionConfig.disableOptions.field) ===
+                                actionConfig.disableOptions.value?
+                                actionConfig.disableOptions.label : actionConfig.label}}
+                            </span>
+                            <span *ngIf="!actionConfig?.disableOptions">
+                                {{actionConfig?.label}}
+                            </span>
+
+                        </button>
+
+                    </ng-container>
+
                 </td>
             </ng-container>
             <ng-container *ngIf="column.type === COLUMN_TYPE.SELECT"
@@ -76,9 +104,12 @@
                     *matHeaderCellDef> {{column.label}} </th>
                 <td mat-cell
                     *matCellDef="let element">
-                    <mat-select class="w-75" [(ngModel)]="element[column.field]" [disabled]="column.readOnly">
-                        <mat-option *ngFor="let item of configuration.masterData[column.field]" [value]="item[column.idField ? column.idField : 'id']">
-                          {{item[column.labelField ? column.labelField : 'label']}}
+                    <mat-select class="w-75"
+                        [(ngModel)]="element[column.field]"
+                        [disabled]="column.readOnly">
+                        <mat-option *ngFor="let item of configuration.masterData[column.field]"
+                            [value]="item[column.idField ? column.idField : 'id']">
+                            {{item[column.labelField ? column.labelField : 'label']}}
                         </mat-option>
                     </mat-select>
                 </td>
@@ -90,12 +121,11 @@
         <tr mat-row
             *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator 
-        *ngIf= "!configuration?.hidePagination && paginationOptions"
+    <mat-paginator *ngIf="!configuration?.hidePagination && paginationOptions"
         [length]="paginationOptions.totalDataSize"
         [pageSize]="paginationOptions.pageSize"
         [pageSizeOptions]="paginationOptions.pageSizeOptions"
-        (page) = "onPaginationChange($event)"
+        (page)="onPaginationChange($event)"
         aria-label="Select page">
     </mat-paginator>
 </div>

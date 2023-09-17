@@ -5,3 +5,8 @@ export enum ColumnType {
     SELECT = 'select',
     DATE_LABEL = 'date'
 }
+
+export enum ActionType {
+    ICON,
+    BUTTON
+};

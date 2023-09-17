@@ -1,3 +1,5 @@
+import { ActionType } from "../enums/column-type";
+
 export interface ITableConfiguration {
     disableFullTextSearch?:boolean;
     add?:boolean;
@@ -13,10 +15,20 @@ export interface IAddConfig {
     tooltip?: string;
 }
 
-export interface IActionConfig {
+export interface IActionConfig{
     id: string;
-    iconName: string;
+    type?: ActionType;
+    label?: string;
+    iconName?: string;
     tooltip?:string;
+    disableOptions?:IActionDisableOptions;
     actionEnableField?:string;
     action?: (item:any, index?:any)=>void;
+}
+
+export interface IActionDisableOptions {
+    field: string;
+    value: any;
+    label? : string;
+    iconName?: string;
 }
