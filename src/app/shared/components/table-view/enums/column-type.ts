@@ -9,4 +9,4 @@ export enum ColumnType {
 export enum ActionType {
     ICON,
     BUTTON
-};
+}

@@ -13,7 +13,7 @@ export class SideMenuNavComponent {
   role ='';
   ngOnInit(): void {
       this.role = localStorage.getItem('Role');
-      if (this.role == 'admin'){
+      if (this.role === 'admin'){
         this.showAllBooking = true;
       }
       else this.showAllBooking = false;

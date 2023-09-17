@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
       }
       manageCredentials(token:any) {
         if (token) {
-          const decodedToken = this.jwtService.decodeToken(token);
           this.ngZone.run(() => {
             
             const eventData = { loggedIn: true, user: '', role: ''};

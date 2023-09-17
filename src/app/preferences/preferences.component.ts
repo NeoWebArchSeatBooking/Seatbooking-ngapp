@@ -86,7 +86,7 @@ export class PreferencesComponent implements OnInit {
   }
 
   cancelPreference(id) {
-    this.preferenceService.cancelPreference(id).subscribe(res => {
+    this.preferenceService.cancelPreference(id).subscribe(() => {
       this.utilityService.showSuccessAlert('Preference got canceled successfully');
       this.getData();
     })

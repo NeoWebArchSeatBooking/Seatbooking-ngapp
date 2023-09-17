@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { NewBookingComponent } from '../new-booking/new-booking.component';
 import { BookingService } from '../services/booking.service';
 import { CompanyInfoService } from '../services/company-info.service';
 import { TableViewComponent } from '../shared/components/table-view/table-view.component';
@@ -122,7 +121,7 @@ export class BookingComponent implements OnInit {
   }
 
   cancelBooking(id) {
-    this.bookingService.cancelBooking(id).subscribe(res => {
+    this.bookingService.cancelBooking(id).subscribe(() => {
       this.utilityService.showSuccessAlert('Booking got canceled successfully');
       this.getData();
     })

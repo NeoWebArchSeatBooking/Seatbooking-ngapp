@@ -36,7 +36,7 @@ export class ListPreferenceComponent implements OnInit {
   }
 
   process(preferences: any[], infra: any) {
-    const infraKeys = infra.map((ob:any)=>ob.key);
+    // const infraKeys = infra.map((ob:any)=>ob.key);
     preferences.forEach((preference:any) => {
       preference.seatDetails = preference.value.split('_'); //this.splitValue(preference.value, infraKeys);
       preference.infra = infra.find((ob: any) => ob.key === preference.key);

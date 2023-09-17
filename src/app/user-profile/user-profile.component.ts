@@ -12,6 +12,6 @@ export class UserProfileComponent {
   ngOnInit(): void {
     this.name =localStorage.getItem('Name');
     this.role =localStorage.getItem('Role');
-    this.profilePic =localStorage.getItem('ProfilePic');
+    this.profilePic =localStorage.getItem('ProfilePic') ??'../../assets/images/user2.jpeg';
   }
 }
