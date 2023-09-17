@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { NewBookingComponent } from '../new-booking/new-booking.component';
 import { BookingService } from '../services/booking.service';
 import { CompanyInfoService } from '../services/company-info.service';
 import { TableViewComponent } from '../shared/components/table-view/table-view.component';
 import { UtilityService } from '../shared/service/utility/utility.service';
 import { schema } from './schema/booking.schema';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -27,7 +27,8 @@ export class BookingComponent implements OnInit {
     private bookingService: BookingService,
     private companyInfoService: CompanyInfoService,
     private utilityService: UtilityService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    public router: Router) {
   }
   ngOnInit(): void {
     
@@ -120,19 +121,13 @@ export class BookingComponent implements OnInit {
   }
 
   cancelBooking(id) {
-    this.bookingService.cancelBooking(id).subscribe(res => {
+    this.bookingService.cancelBooking(id).subscribe(() => {
       this.utilityService.showSuccessAlert('Booking got canceled successfully');
       this.getData();
     })
   }
 
   addNew() {
-    const dialogRef = this.dialog.open(NewBookingComponent, {
-      height: '100%',
-      width: '90%',
-    });
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.router.navigate(['booking/new']);
   }
 }

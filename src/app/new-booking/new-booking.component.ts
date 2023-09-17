@@ -5,6 +5,10 @@ import { CompanyInfoService } from '../services/company-info.service';
 import { TableViewComponent } from '../shared/components/table-view/table-view.component';
 import { UtilityService } from '../shared/service/utility/utility.service';
 import { schema } from "./schema/booking.schema";
+import { ITableConfiguration } from '../shared/components/table-view/interfaces/itable-configuration';
+import { ActionType } from '../shared/components/table-view/enums/column-type';
+import { MatDialog } from '@angular/material/dialog';
+import { ListPreferenceComponent } from '../preferences/list-preference/list-preference.component';
 
 @Component({
   selector: 'app-new-booking',
@@ -24,7 +28,8 @@ export class NewBookingComponent {
     private router: Router,
     private bookingService: BookingService,
     private infraService: CompanyInfoService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    public dialog: MatDialog
   ) { }
 
 
@@ -39,7 +44,7 @@ export class NewBookingComponent {
     this.columnDefinition = cols;
   }
 
-  getConfiguration() {
+  getConfiguration(): ITableConfiguration {
     return {
       add: false,
       serverRender: false,
@@ -47,8 +52,15 @@ export class NewBookingComponent {
       actionConfig: [
         {
           id: 'book',
-          iconName: 'check',
+          type: ActionType.BUTTON,
+          label: 'Book',
           tooltip: 'Book a Seat',
+          disableOptions: {
+            field: 'available',
+            value: false,
+            label: 'Booked',
+           
+          },
           actionEnableField: 'available',
           action: (elem:any) => {
             this.utilityService.showConfirmation({
@@ -91,7 +103,7 @@ export class NewBookingComponent {
   }
 
   floorChange() {
-    this.fetchSeats()
+    //this.fetchSeats()
   }
 
   fetchSeats(){
@@ -103,10 +115,10 @@ export class NewBookingComponent {
       this.utilityService.showErrorAlert('location is mandatory to search');
       return;
     }
-    if(!this.searchParams.blockId || this.searchParams.blockId === ""){
-      this.utilityService.showErrorAlert('block is mandatory to search');
-      return;
-    }
+    // if(!this.searchParams.blockId || this.searchParams.blockId === ""){
+    //   this.utilityService.showErrorAlert('block is mandatory to search');
+    //   return;
+    // }
     this.infraService.fetchAvailableSeats(this.searchParams).subscribe((res: any) => {
       this.mapToSeatTable(res.seats)
     });
@@ -130,7 +142,32 @@ export class NewBookingComponent {
     })
   }
 
+  openPreferences() {
+    const dialogRef = this.dialog.open(ListPreferenceComponent, {width: '33%', height: '60%'});
+    dialogRef.afterClosed().subscribe(res => {
+      if(res) {
+        res.seatDetails.forEach((ob, index) => {
+          if(index === 0){
+            this.searchParams.locationId = ob;
+            this.locationChange({value: ob});
+          } else if(index === 1) {
+            this.searchParams.blockId = ob;
+            this.blockChange({value: ob})
+          } else if(index === 2) {
+            this.searchParams.floorId = ob;
+          }
+        })
+      }
+    });
+  }
+
+  onCancel() {
+    this.router.navigate(['/booking']);
+  }
+
 }
+
+
 
 interface SeatBookReq {
   date: string

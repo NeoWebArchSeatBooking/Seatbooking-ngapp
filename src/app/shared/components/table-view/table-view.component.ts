@@ -8,7 +8,7 @@ import { get } from 'lodash';
 import { ITableConfiguration } from './interfaces/itable-configuration';
 import { IColumnFilter } from './interfaces/icolumn-filter';
 import { columnFilterConditon } from './enums/table-view';
-import { ColumnType } from './enums/column-type';
+import { ActionType, ColumnType } from './enums/column-type';
 
 @Component({
   selector: 'app-table-view',
@@ -24,6 +24,7 @@ export class TableViewComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort | undefined;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  actionType = ActionType;
 
   paginationOptions = {
     pageSize : 10,

@@ -1,0 +1,17 @@
+.preference {
+    text-align: center;
+    margin: auto;
+    span {
+        font-size: 1.2em;
+        font-weight: bold;
+        padding-right: 25px;
+    }
+}
+
+.or {
+    padding: 0 25px;
+}
+
+mat-form-field {
+    width: 25%;
+}
