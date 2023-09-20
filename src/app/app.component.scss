@@ -1,4 +1,4 @@
-.container {
+.container1 {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -10,6 +10,14 @@
 
 h1.app-name {
     margin-left: 8px;
+    cursor: pointer;
+}
+
+h3.user-details {
+    cursor: pointer;
+}
+
+h6.user-details {
     cursor: pointer;
 }
 

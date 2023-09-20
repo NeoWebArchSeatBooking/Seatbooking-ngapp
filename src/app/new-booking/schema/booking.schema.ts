@@ -6,13 +6,18 @@ export const schema = {
             "type": "action"
         },
         {
+            "field": "seatId",
+            "label": "Seat Number",
+            "type": "label"
+        },
+        {
             "field": "floorId",
             "label": "Floor Id",
             "type": "label"
         },
         {
-            "field": "seatId",
-            "label": "Seat Number",
+            "field": "blockId",
+            "label": "Block",
             "type": "label"
         },
         {

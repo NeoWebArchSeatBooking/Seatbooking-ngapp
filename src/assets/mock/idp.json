@@ -3,7 +3,10 @@
         "profile": {
             "userId": "user@test.com",
             "name": "Demo User",
-            "role": "admin"
+            "role": "admin",
+            "profilePic": "",
+            "firstName": "Demo",
+            "lastName": "User"
         },
         "metadata": {
             "status": 200
