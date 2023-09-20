@@ -17,6 +17,7 @@ import { ApiInterceptor } from './shared/interceptor/api-interceptor';
 import { SharedModule } from './shared/shared.module';
 import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AddPreferenceComponent,
     ListPreferenceComponent,
     UserProfileComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
