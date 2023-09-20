@@ -7,20 +7,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class HelpComponent {
-
-  // features = [
-  //   {
-  //     title: 'Feature 1: Booking Seats',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...',
-  //   },
-  //   {
-  //     title: 'Feature 2: Managing Reservations',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...',
-  //   },
-  //   // Add more features as needed
-  // ];
-
-
-  ngOnInit(): void { }
+  isAdmin: boolean = false;
+  role = '';
+  ngOnInit(): void {
+    this.role = localStorage.getItem('Role');
+    this.isAdmin = this.role === 'admin';
+  }
 
 }

@@ -51,13 +51,25 @@
     </mat-card>
   </mat-grid-tile>
 
+  <mat-grid-tile *ngIf="isAdmin">
+    <mat-card class="help-card">
+      <mat-card-header>
+        <mat-card-title>View All Bookings</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>To view bookings across all the users, click on <a routerLink="/booking/all">All Booking</a> link from the
+          side menu.
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
   <mat-grid-tile>
     <mat-card class="help-card">
       <mat-card-header>
         <mat-card-title>Need more Help?</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>Please reach out to <b>admin-gsms@cognizant.com</b> for any queries
+        <p>Please reach out to <b>help-gsms@cognizant.com</b> for any queries
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
