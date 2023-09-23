@@ -1,32 +1,32 @@
 import { Component } from '@angular/core';
 import { EventService } from '././event.service';
-import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'seatBooking';
-  receivedMessage: boolean = false;
+  title = 'Seat Booking';
+  user:any;
   loggedIn = false;
-  user = 'NA';
-  role ='';
-  subscriptions: Subscription[] = [];
-
-  constructor(private eventService: EventService) { }
+ō
+  constructor(
+    private authService: AuthService,
+    private eventService: EventService
+  ) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.eventService.eventEmitter.subscribe((eventData: any) => {
-      this.receivedMessage = eventData.loggedIn;
-      this.user = eventData.user;
-      this.role = eventData.role;
-    }));
-  }
+    this.loggedIn = this.authService.isLoggedIn();
+    this.user = this.authService.getUSerDetails();
 
-  ngOnDestroy(): void {
-    this.subscriptions.forEach((sub) => {
-      sub.unsubscribe();
+    this.eventService.message$.subscribe((isLoggedIn:boolean) => {
+      this.loggedIn =isLoggedIn;
+      this.user = this.authService.getUSerDetails();
     });
   }
 }
+function isLoggedIn(value: any): void {
+  throw new Error('Function not implemented.');
+}
+
