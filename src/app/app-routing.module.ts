@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'list-preferences', component: ListPreferenceComponent, canActivate:[authGuard]},
   { path: 'booking', component: BookingComponent, canActivate:[authGuard]},
   { path: 'booking/all', component: AllBookingComponent, canActivate:[authGuard]},
-  { path: 'home', component: HomeComponent, canActivate:[authGuard]},
-  { path: '**', component: LoginComponent, canActivate:[authGuard]},
+  { path: 'home', component: HomeComponent, canActivate:[]},
+  { path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({
