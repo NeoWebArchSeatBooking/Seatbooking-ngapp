@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EventService } from './../event.service';
 import { JwtService } from '../jwt.service';
 import { AuthService } from '../services/auth.service';
+import { IdleService } from '../services/idle.service';
 @Component({
   selector: 'app-side-menu-nav',
   templateUrl: './side-menu-nav.component.html',
@@ -11,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class SideMenuNavComponent {
   isAdmin;boolean = false;
 
-  constructor( private eventService: EventService, private router: Router,   private jwtService: JwtService, private authService: AuthService ) {}
+  constructor( private eventService: EventService, private router: Router,   private idleService: IdleService, private authService: AuthService ) {}
 
   ngOnInit(): void {
     this.isAdmin = this.authService.isAdmin();
@@ -21,8 +22,8 @@ export class SideMenuNavComponent {
     // @ts-ignore
     google.accounts.id.disableAutoSelect();
 
-    this.authService.clearToken();
-    this.eventService.showHideMenu(false);
+    this.authService.logOut();
+    this.idleService.clear();
     this.router.navigate(['login']);
   }
 }

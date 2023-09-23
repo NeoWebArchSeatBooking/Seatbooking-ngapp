@@ -3,6 +3,7 @@ import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 import { CookieService } from 'ngx-cookie-service';
 import { map } from 'rxjs';
+import { EventService } from '../event.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AuthService {
   
   constructor(
     private apiService: ApiService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private eventService: EventService,
     ) { }
 
   fetchUserDetails() {
@@ -54,13 +56,18 @@ export class AuthService {
   }
 
   setToken(token:string) {
-    this.cookieService.set('token', token);
+    this.cookieService.set('token', token, { expires: new Date(new Date().getTime() +  1000 * 60 * 60) });
     this.token = token;
   }
 
   clearToken() {
     this.cookieService.delete('token');
     this.token = undefined;
+  }
+
+  logOut() {
+    this.clearToken();
+    this.eventService.showHideMenu(false);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { EventService } from './../event.service';
+import { IdleService } from '../services/idle.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
    private eventService: EventService,
    private authService: AuthService,
    private ngZone: NgZone,
-    private router: Router) { }
+   private idleService: IdleService,
+   private router: Router) { }
 
     ngOnInit(): void {
       if(!this.authService.isLoggedIn()) {
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
           this.authService.fetchUserDetails().subscribe(res => {
             this.eventService.showHideMenu(true);
             this.router.navigate(['home']);
+            this.idleService.restart();
           });
         });
       }
