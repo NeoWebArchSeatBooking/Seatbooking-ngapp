@@ -1,47 +1,80 @@
-<h2 mat-dialog-title>Book new Seat</h2>
-<mat-dialog-content class="mat-typography">
-    <div>
+<h2>Book new Seat</h2>
+<div>
+    <div class="date">
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
-            <input name="date" required matInput [matDatepicker]="picker" [(ngModel)]="searchParams.date">
+            <input name="date"
+                required
+                matInput
+                [matDatepicker]="picker"
+                [(ngModel)]="searchParams.date">
             <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matIconSuffix
+                [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
     </div>
-    <div>
+    <div class="search">
         <mat-form-field>
             <mat-label>Select Location</mat-label>
-            <mat-select required name="location" #location="ngModel" [(ngModel)]="searchParams.locationId"
+            <mat-select required
+                name="location"
+                #location="ngModel"
+                [(ngModel)]="searchParams.locationId"
                 (selectionChange)="locationChange($event)">
                 <mat-option *ngFor="let option of locations"
                     [value]="option.locationId">{{option.locationName}}</mat-option>
             </mat-select>
             <mat-error>Field is required</mat-error>
         </mat-form-field>
-        &nbsp;
+        &nbsp;&nbsp;
         <mat-form-field>
             <mat-label>Select Block</mat-label>
-            <mat-select required name="block" #block="ngModel" [(ngModel)]="searchParams.blockId"
+            <mat-select required
+                name="block"
+                #block="ngModel"
+                [(ngModel)]="searchParams.blockId"
                 (selectionChange)="blockChange($event)">
-                <mat-option *ngFor="let option of blocks" [value]="option.blockId">{{option.blockName}}</mat-option>
+                <mat-option *ngFor="let option of blocks"
+                    [value]="option.blockId">{{option.blockName}}</mat-option>
             </mat-select>
             <mat-error>Field is required</mat-error>
         </mat-form-field>
-        &nbsp;
+        &nbsp;&nbsp;
         <mat-form-field>
             <mat-label>Select Floor</mat-label>
-            <mat-select required name="floor" #floor="ngModel" [(ngModel)]="searchParams.floorId"
+            <mat-select required
+                name="floor"
+                #floor="ngModel"
+                [(ngModel)]="searchParams.floorId"
                 (selectionChange)="floorChange()">
-                <mat-option *ngFor="let option of floors" [value]="option.floorId">{{option.floorId}}</mat-option>
+                <mat-option *ngFor="let option of floors"
+                    [value]="option.floorId">{{option.floorId}}</mat-option>
             </mat-select>
             <mat-error>Field is required</mat-error>
         </mat-form-field>
+        &nbsp;&nbsp;
+        <span class="or">Or</span>
+        <span>
+            <button mat-raised-button
+                color="primary"
+                (click)="openPreferences()"> Choose from Preferences</button>
+        </span>
     </div>
-    <mat-dialog-actions >
-        <button mat-button [mat-dialog-close]="true" >Cancel</button>
-        <button mat-button cdkFocusInitial (click)="fetchSeats()">Search</button>
-    </mat-dialog-actions>
-    <app-table-view #tableView [configuration]="configuration" [columnDefinition]="columnDefinition" >
-    </app-table-view>
-</mat-dialog-content>
+    <div class="buttons">
+        <button mat-button
+            mat-raised-button
+            (click)="onCancel()"
+            [mat-dialog-close]="true">Cancel</button> &nbsp;&nbsp;
+        <button mat-button
+            mat-raised-button
+            color="primary"
+            cdkFocusInitial
+            (click)="fetchSeats()">Search</button>
+    </div>
+</div>
+
+<app-table-view #tableView
+    [configuration]="configuration"
+    [columnDefinition]="columnDefinition">
+</app-table-view>

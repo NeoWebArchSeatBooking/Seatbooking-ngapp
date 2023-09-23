@@ -9,6 +9,7 @@ import { PreferencesComponent } from './preferences/preferences.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component'
 import { ListPreferenceComponent } from './preferences/list-preference/list-preference.component';
+import { HelpComponent } from './help/help.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   { path: 'user', component: UserProfileComponent, canActivate:[authGuard]},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent, canActivate:[authGuard]},
   { path: 'booking/all', component: AllBookingComponent, canActivate:[authGuard]},
   { path: 'home', component: HomeComponent, canActivate:[]},
+  { path: 'help', component: HelpComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'home'},
 ];
 

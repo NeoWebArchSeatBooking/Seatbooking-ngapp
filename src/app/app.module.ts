@@ -17,7 +17,7 @@ import { ApiInterceptor } from './shared/interceptor/api-interceptor';
 import { SharedModule } from './shared/shared.module';
 import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-// import { HelpComponent } from './help/help.component';
+import { HelpComponent } from './help/help.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './services/auth.service';
 
@@ -34,6 +34,7 @@ import { AuthService } from './services/auth.service';
     AddPreferenceComponent,
     ListPreferenceComponent,
     UserProfileComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
