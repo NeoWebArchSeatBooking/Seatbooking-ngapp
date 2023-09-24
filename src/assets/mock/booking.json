@@ -5,7 +5,7 @@
         "bookingDate": "02-08-2023",
         "userId": "sgd.daran@gmail.com",
         "bookingId": 1,
-        "status": "Active",
+        "status": "cancelled",
         "seatInformation": {
           "locationId": "TCO",
           "blockId": "SDB2",

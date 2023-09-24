@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component,OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-help',
@@ -6,12 +7,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./help.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HelpComponent {
+export class HelpComponent  implements OnInit{
   isAdmin: boolean = false;
-  role = '';
+  constructor(private authService: AuthService) {
+
+  }
+
   ngOnInit(): void {
-    this.role = localStorage.getItem('Role');
-    this.isAdmin = this.role === 'admin';
+    this.isAdmin = this.authService.isAdmin();
   }
 
 }

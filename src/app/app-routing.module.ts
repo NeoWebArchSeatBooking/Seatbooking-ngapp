@@ -11,18 +11,17 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
 import { ListPreferenceComponent } from './preferences/list-preference/list-preference.component';
 import { HelpComponent } from './help/help.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'user', component: UserProfileComponent, canActivate: [authGuard] },
-  { path: 'new', component: NewBookingComponent, canActivate: [authGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'preferences', component: PreferencesComponent, canActivate: [authGuard] },
-  { path: 'list-preferences', component: ListPreferenceComponent, canActivate: [authGuard] },
-  { path: 'booking', component: BookingComponent, canActivate: [authGuard] },
-  { path: 'booking/new', component: NewBookingComponent, canActivate: [authGuard] },
-  { path: 'booking/all', component: AllBookingComponent, canActivate: [authGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, 
+  { path: 'user', component: UserProfileComponent, canActivate:[authGuard]},
+  { path: 'new', component : NewBookingComponent, canActivate:[authGuard]},
+  { path: 'login', component : LoginComponent},
+  { path: 'preferences', component: PreferencesComponent, canActivate:[authGuard]},
+  { path: 'list-preferences', component: ListPreferenceComponent, canActivate:[authGuard]},
+  { path: 'booking', component: BookingComponent, canActivate:[authGuard]},
+  { path: 'booking/all', component: AllBookingComponent, canActivate:[authGuard]},
+  { path: 'home', component: HomeComponent, canActivate:[]},
   { path: 'help', component: HelpComponent, canActivate: [authGuard] },
-  { path: '**', component: LoginComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({
