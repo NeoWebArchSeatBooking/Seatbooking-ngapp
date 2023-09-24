@@ -14,7 +14,7 @@
 
     <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
         <mat-sidenav #snav [mode]="'side'">
-            <app-side-menu-nav></app-side-menu-nav>
+            <app-side-menu-nav [isAdmin]="isAdmin"></app-side-menu-nav>
         </mat-sidenav>
 
         <mat-sidenav-content>

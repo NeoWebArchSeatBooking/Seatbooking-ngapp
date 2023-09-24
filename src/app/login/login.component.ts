@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         const token = response.credential;
         this.ngZone.run(() => {
           this.authService.setToken(token);
-          this.authService.fetchUserDetails().subscribe(res => {
+          this.authService.fetchUserDetails().subscribe(() => {
             this.eventService.showHideMenu(true);
             this.router.navigate(['home']);
             this.idleService.restart();

@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'Seat Booking';
   user:any;
   loggedIn = false;
-ō
+  isAdmin = false;
   constructor(
     private authService: AuthService,
     private eventService: EventService,
@@ -28,15 +28,15 @@ export class AppComponent {
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedIn();
     this.user = this.authService.getUSerDetails();
-
     this.eventService.message$.subscribe((isLoggedIn:boolean) => {
+      this.isAdmin = this.authService.isAdmin()
       this.loggedIn =isLoggedIn;
       this.user = this.authService.getUSerDetails();
     });
   }
 
   idleCheck() {
-    this.idleService.idle$.subscribe((s) => {
+    this.idleService.idle$.subscribe(() => {
       this.idleService.clear();
       this.utilityService.showConfirmation({
         data : {

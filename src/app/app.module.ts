@@ -62,7 +62,7 @@ export class AppModule {}
 
 export function tokenProviderFactory(authService: AuthService) {
   return () => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       if(authService.checkIfAlreadyLoggedIn()) {
         authService.fetchUserDetails().subscribe(res => {
           console.log(res);

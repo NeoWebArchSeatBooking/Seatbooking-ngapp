@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component,OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./help.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HelpComponent {
+export class HelpComponent  implements OnInit{
   isAdmin: boolean = false;
   constructor(private authService: AuthService) {
 

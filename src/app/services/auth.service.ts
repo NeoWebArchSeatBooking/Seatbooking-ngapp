@@ -39,6 +39,7 @@ export class AuthService {
   }
 
   isAdmin() {
+    console.log(this.userDetails?.role)
     return this.userDetails?.role === 'admin';
   }
 

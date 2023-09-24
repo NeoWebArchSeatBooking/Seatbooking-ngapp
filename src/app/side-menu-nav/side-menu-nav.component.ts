@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from './../event.service';
-import { JwtService } from '../jwt.service';
 import { AuthService } from '../services/auth.service';
 import { IdleService } from '../services/idle.service';
 @Component({
@@ -9,13 +7,14 @@ import { IdleService } from '../services/idle.service';
   templateUrl: './side-menu-nav.component.html',
   styleUrls: ['./side-menu-nav.component.scss']
 })
-export class SideMenuNavComponent {
-  isAdmin;boolean = false;
+export class SideMenuNavComponent implements OnInit{
+  @Input() isAdmin:boolean;
 
-  constructor( private eventService: EventService, private router: Router,   private idleService: IdleService, private authService: AuthService ) {}
+  constructor( private router: Router,   private idleService: IdleService, private authService: AuthService ) {}
 
   ngOnInit(): void {
-    this.isAdmin = this.authService.isAdmin();
+    console.log(`role in menu ${this.isAdmin}`)
+    //this.isAdmin = this.authService.isAdmin();
   }
 
   signOut(): void { 
