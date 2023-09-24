@@ -1,20 +1,20 @@
 <div class="container1">
 
-    <mat-toolbar *ngIf="receivedMessage" color="primary" class="toolbar">
+    <mat-toolbar *ngIf="loggedIn" color="primary" class="toolbar">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         <h1 class="app-name" routerLink="/home">
             Seat Booking Application</h1>
-        <span class="example-spacer"></span>
-        <div>
-            <h3 class="user-details" routerLink="/user">
-                {{user | uppercase}}</h3>
-            <h6>{{role}}</h6>
+        <!-- <span class="example-spacer"></span> -->
+        <div class="user">
+            <div class="name" routerLink="/user">
+                {{user?.name}}</div>
+            <div>{{user?.role}}</div>
         </div>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
         <mat-sidenav #snav [mode]="'side'">
-            <app-side-menu-nav></app-side-menu-nav>
+            <app-side-menu-nav [isAdmin]="isAdmin"></app-side-menu-nav>
         </mat-sidenav>
 
         <mat-sidenav-content>

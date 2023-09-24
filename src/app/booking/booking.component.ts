@@ -59,6 +59,12 @@ export class BookingComponent implements OnInit {
           id: 'cancel',
           iconName: 'cancel',
           tooltip: 'Cancel Booking',
+          disableOptions: {
+            field: 'status',
+            value: 'cancelled',
+            label: 'Cancelled',           
+          },
+          actionEnableField: 'status',
           action: (item:any) => {
             this.utilityService.showConfirmation({
               data: {

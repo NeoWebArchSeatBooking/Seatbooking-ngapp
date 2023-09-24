@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventService {
-  eventEmitter: EventEmitter<any> = new EventEmitter<any>();
 
-  emitEvent(eventData: any): void {
-    this.eventEmitter.emit(eventData);
+  private subject = new Subject();
+  public message$:Observable<any> = this.subject;
+
+  showHideMenu(isLoggedIn:boolean) {
+    this.subject.next(isLoggedIn);
   }
 }
