@@ -8,13 +8,14 @@ import { IdleService } from '../services/idle.service';
   styleUrls: ['./side-menu-nav.component.scss']
 })
 export class SideMenuNavComponent implements OnInit{
-  @Input() isAdmin:boolean;
+  isAdmin:boolean;
 
   constructor( private router: Router,   private idleService: IdleService, private authService: AuthService ) {}
 
   ngOnInit(): void {
-    console.log(`role in menu ${this.isAdmin}`)
-    //this.isAdmin = this.authService.isAdmin();
+    
+    this.isAdmin = this.authService.isAdmin();
+    console.log(`role in menu ${this.isAdmin}`);
   }
 
   signOut(): void { 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs/internal/observable/throwError';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, delay, map } from 'rxjs/operators';
 import { IAPIConfiguration } from '../interfaces/i-configuration';
 import { UtilityService } from '../utility/utility.service';
 
@@ -15,7 +15,7 @@ export class MockService {
     private utilityService: UtilityService) { }
 
   fetchData(configuration:IAPIConfiguration, params?:any) {
-    return this.httpClient.get(`/assets/mock/${configuration.group}.json`).pipe(map((res:any) => {
+    return this.httpClient.get(`/assets/mock/${configuration.group}.json`).pipe(delay(500)).pipe(map((res:any) => {
       const data = res[configuration.key];
       console.log(`${params} not used in mock`)
       return data;
