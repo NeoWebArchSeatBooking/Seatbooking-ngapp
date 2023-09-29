@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,9 @@ import { ApiInterceptor } from './shared/interceptor/api-interceptor';
 import { SharedModule } from './shared/shared.module';
 import { SideMenuNavComponent } from './side-menu-nav/side-menu-nav.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HelpComponent } from './help/help.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AddPreferenceComponent,
     ListPreferenceComponent,
     UserProfileComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,26 +48,29 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    // {
-    //   provide: 'SocialAuthServiceConfig',
-    //   useValue: {
-    //     autoLogin: false,
-    //     providers: [
-    //       {
-    //         id: GoogleLoginProvider.PROVIDER_ID,
-    //         provider: new GoogleLoginProvider(`${environment.clientKey}.apps.googleusercontent.com`,
-    //         {
-    //                       oneTapEnabled: false, // <===== default is true
-    //                      }
-    //         ) 
-    //       }
-    //     ],
-    //     onError: (err:any) => {
-    //       console.error(err);
-    //     }
-    //   } as SocialAuthServiceConfig,
-    // },GoogleSigninButtonDirective
+    CookieService,
+    {
+			provide: APP_INITIALIZER,
+			useFactory: tokenProviderFactory,
+			deps: [AuthService],
+			multi: true
+		}
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function tokenProviderFactory(authService: AuthService) {
+  return () => {
+    return new Promise<void>((resolve) => {
+      if(authService.checkIfAlreadyLoggedIn()) {
+        authService.fetchUserDetails().subscribe(res => {
+          console.log(res);
+          return resolve();
+        });
+      } else {
+        return resolve();
+      }
+    });
+  };
+} 

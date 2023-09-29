@@ -32,10 +32,16 @@ export class CompanyInfoService {
       key: 'seats',
     };
     const params:any = {};
-    params.date = moment(seatSearchParams.date).format('DD-MM-yyyy')
-    params.locationId = seatSearchParams.locationId;
-    params.blockId = seatSearchParams.blockId;
-    params.floorId = seatSearchParams.floorId;
+    params.date = moment(seatSearchParams.date).format('DD-MM-yyyy');
+    if(seatSearchParams.locationId) {
+      params.locationId = seatSearchParams.locationId;
+    }
+    if(seatSearchParams.blockId) {
+      params.blockId = seatSearchParams.blockId;
+    }
+    if(seatSearchParams.floorId) {
+      params.floorId = seatSearchParams.floorId;
+    }
     return this.apiService.httpGet('facilities/seats', params, config);
   }
 

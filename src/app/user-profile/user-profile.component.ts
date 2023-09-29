@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent {
-  name ='';
-  userID ='';
-  role ='';
+  user;
   profilePic ='';
+
+  constructor(
+    private authService: AuthService
+  ) {}
+
   ngOnInit(): void {
-    this.name =localStorage.getItem('Name');
-    this.role =localStorage.getItem('Role');
-    this.profilePic =localStorage.getItem('ProfilePic');
+    this.user = this.authService.getUSerDetails();
+    this.profilePic = this.user.profilePic? this.user.profilePic : '../../assets/images/user2.jpeg';
   }
 }

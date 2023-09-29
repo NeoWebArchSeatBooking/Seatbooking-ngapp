@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container1">
 
-    <mat-toolbar *ngIf="receivedMessage" color="primary" class="toolbar">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <mat-toolbar color="primary" class="toolbar">
+        <button *ngIf="loggedIn" mat-icon-button (click)="snav?.toggle()"><mat-icon>menu</mat-icon></button>
         <h1 class="app-name" routerLink="/home">
             Seat Booking Application</h1>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <span class="example-spacer"></span>
         <div>
@@ -22,12 +23,19 @@
                 <a mat-button routerLink="/login">Login</a>
             </div>
 >>>>>>> Stashed changes
+=======
+        <!-- <span class="example-spacer"></span> -->
+        <div class="user">
+            <div class="name" routerLink="/user">
+                {{user?.name}}</div>
+            <div>{{user?.role}}</div>
+>>>>>>> f00dac81b4aba502e1b3dbef3c4fb0a5721d2cfb
         </div>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
         <mat-sidenav #snav [mode]="'side'">
-            <app-side-menu-nav></app-side-menu-nav>
+            <app-side-menu-nav *ngIf="loggedIn"></app-side-menu-nav>
         </mat-sidenav>
 
         <mat-sidenav-content>

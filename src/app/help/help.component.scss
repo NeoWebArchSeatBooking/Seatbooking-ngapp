@@ -1,0 +1,16 @@
+// .help-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+//   margin: 20px;
+// }
+
+.help-card {
+  width: 300px;
+  margin: 10px;
+  align-items: flex-start;
+}
+
+.mat-grid-tile-content {
+  align-items: stretch !important; 
+}

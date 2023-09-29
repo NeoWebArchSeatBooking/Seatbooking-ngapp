@@ -3,6 +3,6 @@
   {{data?.content}}
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click) = "close(false)">No</button>
-  <button class="btn btn-primary" mat-button mat-dialog-close cdkFocusInitial (click) = "close(true)" >Yes</button>
+  <button mat-button mat-raised-button (click) = "close(false)">No</button>
+  <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial (click) = "close(true)" >Yes</button>
 </div>
