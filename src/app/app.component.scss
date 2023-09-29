@@ -31,6 +31,17 @@ h6.user-details {
     padding: 20px;
 }
 
+<<<<<<< Updated upstream
 .example-spacer {
     flex: 1 1 auto;
+=======
+.user {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 0.85em;
+    line-height: normal;
+    .role {
+        padding-left: 10px;
+    }
+>>>>>>> Stashed changes
 }
