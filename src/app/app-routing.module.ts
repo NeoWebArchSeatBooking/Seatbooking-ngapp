@@ -11,7 +11,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
 import { ListPreferenceComponent } from './preferences/list-preference/list-preference.component';
 import { HelpComponent } from './help/help.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, 
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, 
   { path: 'user', component: UserProfileComponent, canActivate:[authGuard]},
   { path: 'booking/new', component : NewBookingComponent, canActivate:[authGuard]},
   { path: 'login', component : LoginComponent},
