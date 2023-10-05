@@ -20,6 +20,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HelpComponent } from './help/help.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './services/auth.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     FormsModule,
     SharedModule,
+    MatToolbarModule,
     // SocialLoginModule,
     // GoogleSigninButtonModule 
   ],

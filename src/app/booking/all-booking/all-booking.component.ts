@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgModule } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
 import { BookingService } from 'src/app/services/booking.service';
@@ -7,11 +7,18 @@ import { TableViewComponent } from 'src/app/shared/components/table-view/table-v
 import { UtilityService } from 'src/app/shared/service/utility/utility.service';
 import { schema } from '../all-booking/schema/all-booking.schema';
 import * as moment from 'moment';
+import { FormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-all-booking',
   templateUrl: './all-booking.component.html',
   styleUrls: ['./all-booking.component.scss']
+})
+
+@NgModule({
+  imports: [FormsModule,MatExpansionModule],
+  // ...
 })
 export class AllBookingComponent {
   search:any = {

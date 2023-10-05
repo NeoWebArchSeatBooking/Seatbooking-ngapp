@@ -74,7 +74,7 @@ export class BookingComponent implements OnInit {
               console.log(res);
               console.log(item);
               if(res) {
-                this.cancelBooking(item.id);
+                this.cancelBooking(item?.id);
               }
             });
           }

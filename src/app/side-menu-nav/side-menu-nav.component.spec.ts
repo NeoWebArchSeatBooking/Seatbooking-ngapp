@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SideMenuNavComponent } from './side-menu-nav.component';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { RouterTestingModule } from '@angular/router/testing';
-import { EventService } from '../event.service';
+import { EventService } from '../services/event.service';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 

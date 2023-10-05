@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import { EventService } from '././event.service';
+import { Component, NgModule } from '@angular/core';
+import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
 import { IdleService } from './services/idle.service';
 import { UtilityService } from './shared/service/utility/utility.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, distinctUntilChanged } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'Seat Booking';
   user:any;

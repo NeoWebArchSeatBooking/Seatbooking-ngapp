@@ -3,7 +3,7 @@ import { ApiService } from '../shared/service/api.service';
 import { IAPIConfiguration } from '../shared/service/interfaces/i-configuration';
 import { CookieService } from 'ngx-cookie-service';
 import { map } from 'rxjs';
-import { EventService } from '../event.service';
+import { EventService } from './event.service';
 
 @Injectable({
   providedIn: 'root'

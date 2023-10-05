@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { IdleService } from '../services/idle.service';
-import { EventService } from '../event.service';
+import { EventService } from '../services/event.service';
 @Component({
   selector: 'app-side-menu-nav',
   templateUrl: './side-menu-nav.component.html',
